@@ -13,8 +13,8 @@ This is a very easy to use Discord.js bot with cool, funny and very useful moder
 Now run the ```bot.bat``` file to make the bot online.
 
 ## Links
-Support: https://discord.gg/DVfHCeK
-Discord API: https://discordapp.com/developers/docs/intro
-Discord Permissions Calculator:https://discordapi.com/permissions.html
+1. Support: https://discord.gg/DVfHCeK
+2. Discord API: https://discordapp.com/developers/docs/intro
+3. Discord Permissions Calculator:https://discordapi.com/permissions.html
 
 Now your bot is setup. Enjoy!!
