@@ -1,5 +1,5 @@
 # Tritax AI
-The source code for my latest discord bot- Tritax AI
+The source code for my latest discord bot- Tritax AI <br>
 This is a very easy to use Discord.js bot with cool, funny and very useful moderation commands
 ## Dependencies
 1. Install ```node.js```
