@@ -15,6 +15,9 @@ Now run the ```bot.bat``` file to make the bot online.
 ## Change-log
 A ```!tempmute``` command is going to be added to mute members.
 
+## Screenshots
+.. image:: /screenshots/screenshot_1.jpg?raw=true
+
 ## Links
 1. Support: https://discord.gg/DVfHCeK
 2. Discord API: https://discordapp.com/developers/docs/intro
