@@ -27,8 +27,8 @@ Now your bot is setup. Enjoy!!
 
 ## Screenshots
 ![screenshot_1](https://user-images.githubusercontent.com/37131433/37079054-461a4d1c-2207-11e8-8603-596ccac16752.png)
-![screenshot_1](https://user-images.githubusercontent.com/37131433/37079269-071a5e08-2208-11e8-94a0-bee7cd703b85.png)
 ![screenshot_3](https://user-images.githubusercontent.com/37131433/37079280-1105dde8-2208-11e8-977c-9a47a1e9eaf0.png)
 ![screenshot_4](https://user-images.githubusercontent.com/37131433/37079287-12f2184c-2208-11e8-9dbc-a246e8de4157.png)
+![screenshot_1](https://user-images.githubusercontent.com/37131433/37079269-071a5e08-2208-11e8-94a0-bee7cd703b85.png)
 
 
