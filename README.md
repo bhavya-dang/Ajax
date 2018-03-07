@@ -12,6 +12,9 @@ This is a very easy to use Discord.js bot with cool, funny and very useful moder
 ## Running The Bot
 Now run the ```bot.bat``` file to make the bot online.
 
+## Change-log
+A ```!tempmute``` command is going to be added to mute members.
+
 ## Links
 1. Support: https://discord.gg/DVfHCeK
 2. Discord API: https://discordapp.com/developers/docs/intro
