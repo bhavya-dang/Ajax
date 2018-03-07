@@ -4,3 +4,4 @@ This is a very easy to use Discord.js bot with cool, funny and very useful moder
 ## Dependencies
 1. Install ```node.js```
 
+g
