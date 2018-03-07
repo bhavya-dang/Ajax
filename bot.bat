@@ -1,3 +1,3 @@
-node bot2.js
+node bot.js
 pause
 
