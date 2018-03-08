@@ -8,9 +8,9 @@ This is a very easy to use Discord.js bot with cool, funny and very useful moder
 5. Invite bot using [Discord Permissions Calculator](https://discordapi.com/permissions.html)
 
 ## Changes
-1. Add your bot token in the ```botconfig.json``` file. Get your bot token from [Discord API portal](https://discordapp.com/developers/docs/intro)
-2. Change the type of channels to your desired one.
-
+* Add your bot token in the ```botconfig.json``` file. Get your bot token from [Discord API portal](https://discordapp.com/developers/docs/intro)
+* Change the type of channels to your desired one.
+* Add more commands in the ```commands``` folder.
 ## Running The Bot
 Now run the ```bot.bat``` file to make the bot online.
 
