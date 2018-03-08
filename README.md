@@ -1,5 +1,6 @@
 # Tritax AI
-This is a very easy to use Discord.js bot with cool, funny and very useful moderation commands
+This is a very easy to use Discord.js bot with cool, funny and very useful moderation commands.
+### Version 1.0.2
 ## Dependencies
 1. Install ```node.js```
 2. Install discord.js lib from command line in a folder ```npm install discord.js```
