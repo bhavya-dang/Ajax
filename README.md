@@ -6,9 +6,10 @@ A very easy to use Discord.js bot with cool, funny and very useful moderation co
 2. Install discord.js lib from command line in a folder ```npm install discord.js```
 3. Install Superagent API from command line ```npm install superagent```
 4. Install "ms" from command line ```npm install ms```
-4. Now clone the bot folder in the folder where you installed the discord.js lib.
+5. Install profanity filter from command line ```npm install profanities```
+6. Now clone the bot folder in the folder where you installed the discord.js lib.
 * Or download the zip file.
-5. Invite bot using [Discord Permissions Calculator](https://discordapi.com/permissions.html)
+7. Invite bot using [Discord Permissions Calculator](https://discordapi.com/permissions.html)
 
 ## Changes
 * Add your bot token in the ```botconfig.json``` file. Get your bot token from [Discord API portal](https://discordapp.com/developers/docs/intro)
