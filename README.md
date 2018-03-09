@@ -19,8 +19,8 @@ A very easy to use Discord.js bot with cool, funny and very useful moderation co
 * Muting, Warning, Xp and Coins systems have been added.
 
 ## Support
-My Discord: https://discord.gg/DVfHCeK
-&copy;
+My Discord: https://discord.gg/DVfHCeK<br>
+&copy;Tritax Gaming 2018
 
 Now your bot is setup. Enjoy!!
 
