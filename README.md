@@ -20,6 +20,7 @@ A very easy to use Discord.js bot with cool, funny and very useful moderation co
 
 ## Support
 My Discord: https://discord.gg/DVfHCeK
+&copy;
 
 Now your bot is setup. Enjoy!!
 
