@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("**!ping**", "Pong the author.")
   .addField("**!test**", "Test if the bot is online.")
   .addField("**!kick**", "**Usage:** !kick **<USER>** reason")
-  .addField("**!gitbot**", "Send the member my bot github page.")
+  .addField("**!8ball**", "Randomly answers a specified question.")
   .addField("**!bulkDelete**", "Delete the no. of messages specified.")
   .addField("**!ban**", "**Usage:** !ban **<USER>** reason")
   .addField("**!botinfo**", "Send the member Bot Information.")
