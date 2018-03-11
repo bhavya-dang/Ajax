@@ -25,6 +25,8 @@
     "express": "^4.16.2",
     "superagent": "^3.8.2",
     "ms": "^2.1.1",
-    "profanities": "^2.6.0"
+    "profanities": "^2.6.0",
+    "quick.db": "^5.3.8",
+    "giphy-api": "^1.2.7"
   }
 }

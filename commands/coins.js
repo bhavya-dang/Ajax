@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 let coins = require("../coins.json");
 
 module.exports.run = async (bot, message, args) => {
+  message.delete();
   //!coins
   if(!coins[message.author.id]){
     coins[message.author.id] = {
@@ -17,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
   .setColor("#00FF00")
   .addField("💸", uCoins);
 
-  message.channel.send(coinEmbed)
+  message.channel.send(coinEmbed).then(msg => {msg.delete(5000)});
 
 }
 

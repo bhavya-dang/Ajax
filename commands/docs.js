@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("Discord.Js", "https://discordjs.readthedocs.io/en/latest/")
   .addField("Github", "https://github.com/discordjs/discord.js")
   .setFooter(`If still getting an error, feel free to ask the devs in #discord-bot-help😁`);
- message.channel.send(docsEmbed);
+ dchannel.send(docsEmbed);
 }
 
 module.exports.help = {
