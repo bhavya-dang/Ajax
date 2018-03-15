@@ -27,10 +27,10 @@ bot.on('ready', () => {
   setTimeout(function(){
     console.log(`Logged in as ${bot.user.tag}`);
   }, 2000);
-  bot.user.setActivity(`on ${bot.guilds.size} servers| ${bot.users.size} users`);
+  bot.user.setActivity(`${bot.guilds.size} servers | ${bot.users.size} users`,{type: "WATCHING"});
 })
 
-
+function loadCmds() {
 fs.readdir("./commands/", (err, files) => {
 
   if(err) console.log(err);
@@ -40,26 +40,38 @@ fs.readdir("./commands/", (err, files) => {
     return;
   }
 
-  jsfile.forEach((f, i) =>{
+
+   jsfile.forEach((f, i) =>{
+     delete require.cache[require.resolve(`./commands/${f}`)];
     let props = require(`./commands/${f}`);
     console.log(`${f} loaded!`);
     bot.commands.set(props.help.name, props);
   });
 });
+}
 
 
+loadCmds();
+bot.on("message", async message => {
+    if(message.author.bot) return undefined;
+    if(message.channel.type === 'dm') return undefined;
+  let prefix = botconfig.prefix;
+
+    let args = message.content.slice(prefix.length).trim().split(" ");
+    let cmd = args.shift().toLowerCase();
+
+    if(message.author.bot) return undefined;;
+    if(!message.content.startsWith(prefix)) return undefined;
+
+    try {
+        let commandFile = require(`./commands/${cmd}.js`);
+        commandFile.run(bot, message, args);
+        if(!commandFile) return message.channel.send("No command found with that name.");
+    } catch (e) { console.log(e) }
 
 
-bot.on("message", async (message, member, guild) => {
-  if(message.author.bot) return;
-  if(message.channel.type === "dm") return;
+  
 
-  let prefix = botconfig.prefix
-  let messageArray = message.content.split(" ");
-  let cmd = messageArray[0];
-  let args = messageArray.slice(1);
-  let commandfile = bot.commands.get(cmd.slice(prefix.length));
-  if(commandfile) commandfile.run(bot,message,args);
   
    let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
   if(!prefixes[message.guild.id]){
@@ -69,14 +81,15 @@ bot.on("message", async (message, member, guild) => {
   }
 
 
+
   if(!coins[message.author.id]){
     coins[message.author.id] = {
       coins: 0
     };
   }
 
-  let coinAmt = Math.floor(Math.random() * 15) + 1;
-  let baseAmt = Math.floor(Math.random() * 15) + 1;
+  let coinAmt = Math.floor(Math.random() * 100) + 1;
+  let baseAmt = Math.floor(Math.random() * 100) + 1;
   console.log(`${coinAmt} ; ${baseAmt}`);
 
   if(coinAmt === baseAmt){
@@ -87,15 +100,10 @@ bot.on("message", async (message, member, guild) => {
     if (err) console.log(err)
   });
     
-  let coinEmbed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .setColor("#19b70b")
-  .addField("💸", `${coinAmt} coins added!`);
-
-  message.channel.send(coinEmbed).then(msg => {msg.delete(5000)});
+  
   }
 
-  let xpAdd = Math.floor(Math.random() * 7) + 8;
+  let xpAdd = Math.floor(Math.random() * 4) + 3;
   console.log(xpAdd);
 
   if(!xp[message.author.id]){
@@ -112,27 +120,35 @@ bot.on("message", async (message, member, guild) => {
   xp[message.author.id].xp =  curxp + xpAdd;
   if(nxtLvl <= xp[message.author.id].xp){
     xp[message.author.id].level = curlvl + 1;
-    
-    let member = xp[message.author.id];
-    let lvlup = new Discord.RichEmbed()
-    .setTitle("Level Up!")
-    .setColor("#cdf909")
-    .addField("New Level", curlvl + 1);
 
-    message.channel.send(lvlup).then(msg => {msg.delete(5000)});
+    console.log("New Level", curlvl + 1);
   }
   fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
     if(err) console.log(err)
   });
   
-  bot.on("guildMemberAdd", (member) => {
-  console.log(`New User "${member.user.username}" has joined "${member.guild.name}"` );
-  member.guild.channels.get("welcome").send(`"${member.user.username}" has joined this server`);
-});
-
-
-  
 
 });
+  bot.on('guildMemberAdd', member => {
+  const channel = member.guild.channels.find('name', 'member-log');
+  if (!channel) return;
+    const members = member.guild.memberCount;
+    
+   let aRole = member.guild.roles.find('name', "Regular");
+    if (!aRole) return member.channel.send(`${aRole} not found.`)
+    
+    member.addRole(aRole.id);
+  channel.send(`${member} has joined the party!:confetti_ball:`)
+  });
+  bot.on('guildMemberRemove', member => {
+  const channel = member.guild.channels.find('name', 'member-log');
+  if (!channel) return;
+    const members = member.guild.memberCount;
+  channel.send(`${member} has left the server! We now have ${members} members.`)
+  });
+bot.on('guildCreate', guild => {
+
+  guild.channel.send(`Thank You for adding me in ${guild}. Type t.help to see my commands! `)
+  });
 
 bot.login(process.env.TOKEN);

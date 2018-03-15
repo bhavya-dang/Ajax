@@ -17,11 +17,12 @@ module.exports.run = async (bot, message, args) => {
   .setAuthor(message.author.username)
   .setColor("#00FF00")
   .addField("💸", uCoins);
-
-  message.channel.send(coinEmbed).then(msg => {msg.delete(5000)});
-
+  
+  message.channel.send(":white_check_mark: | **A private message has been send!**")
+  message.author.send(coinEmbed).then(message =>{message.react("🤑")});
+  
 }
-
 module.exports.help = {
   name: "coins"
 }
+

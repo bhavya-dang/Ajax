@@ -10,10 +10,11 @@ module.exports.run = async (bot, message, args) => {
   .setColor("#f24646")
   .addField("Reported User", `${rUser}`)
   .addField("Reported By",`${message.author}`)
+  .addField("Kicked In", message.channel)
   .addField("Time", message.createdAt)
   .addField("Reason", reason);
   let reportschannel = message.guild.channels.find(`name`, "reports");
-  message.delete().catch(O_o=>{});
+  message.delete()
   reportschannel.send(reportEmbed);
 
 }

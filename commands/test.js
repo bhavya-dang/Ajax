@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
   let testembed = new Discord.RichEmbed()
   .setTitle("Testing...")
   .setColor("#42f453")
-  .setDescription("Testing Done! Bot is online :sunglasses:")
+  .setDescription("If u see this message, & I know that you can, then the bot is obviously online :sunglasses:")
   message.channel.send(testembed);
 }
 

@@ -1,6 +1,6 @@
 {
-  "name": "guidebot",
-  "version": "2.0.3",
+  "name": "tritaxai",
+  "version": "1.0.5",
   "description": "A boilerplate example bot with command handler and reloadable commands. Updated and Maintained by the Idiot's Guide Community",
   "main": "node bot.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/An-Idiots-Guide/guidebot.git"
   },
-  "author": "The Idiot's Guide Community",
+  "author": "TritaxGamer",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/An-Idiots-Guide/guidebot/issues"
@@ -27,6 +27,11 @@
     "ms": "^2.1.1",
     "profanities": "^2.6.0",
     "quick.db": "^5.3.8",
-    "giphy-api": "^1.2.7"
+    "giphy-api": "^1.2.7",
+    "moment": "^2.21.0",
+    "moment-duration-format": "^2.2.2",
+    "discord-eco": "^0.0.10",
+    "slot-machine": "^2.1.0",
+    "urban": "^0.3.1"
   }
 }

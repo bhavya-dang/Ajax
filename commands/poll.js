@@ -1,10 +1,10 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-  if (!args) return message.reply("You must have something to vote for!")
+  if (!args[0]) return message.reply("You must have something to vote for!")
     
         message.channel.send(`:ballot_box:  ${message.author.username} started a vote! React to my next message to vote on it. :ballot_box: `);
-        const pollTopic = await message.channel.send(message.content.slice(5));
+        const pollTopic = await message.channel.send(message.content.slice(6));
         await pollTopic.react(`✅`);
         await pollTopic.react(`⛔`);
         // Create a reaction collector
@@ -21,3 +21,5 @@ module.exports.run = async (bot, message, args) => {
 module.exports.help = {
   name: "poll"
 }
+
+

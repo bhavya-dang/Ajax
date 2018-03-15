@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("XP", curxp, true)
   .setFooter(`${difference} XP til level up`, message.author.displayAvatarURL);
 
-  message.channel.send(lvlEmbed)
+  message.channel.send(lvlEmbed);
 
 }
 
