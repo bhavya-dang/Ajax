@@ -2,7 +2,7 @@
 A very easy to use Discord.js bot with cool, funny and very useful moderation commands.
 ### Version 1.0.3
 ## Dependencies(Command Line)
-1. Install ```node.js```(nodejs.org)
+1. Install ```node.js```[nodejs](https://nodejs.org/en/)
 2. Do ```npm init``` in the bot folder. 
 3. Install discord.js lib in your bot folder ```npm install -g discord.js```
 4. Install Superagent API ```npm install superagent --save```
@@ -22,7 +22,7 @@ A very easy to use Discord.js bot with cool, funny and very useful moderation co
 * Muting, Warning, Xp and Coins systems have been added.
 * Cooldowns of 20 seconds are going to be added for prevention of spamming of messages for XP. 
 ## Support
-My Discord: https://discord.gg/YnBCs4D<br>
+[My Discord](https://discord.gg/YnBCs4D)<br>
 &copy;Tritax Gaming 2018
 
 Now your bot is setup. Enjoy!!
