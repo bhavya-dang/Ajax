@@ -151,4 +151,4 @@ bot.on('guildCreate', guild => {
   guild.channel.send(`Thank You for adding me in ${guild}. Type t.help to see my commands! `)
   });
 
-bot.login(process.env.TOKEN);
+bot.login(botconfig.token);
