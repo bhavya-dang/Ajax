@@ -17,7 +17,7 @@ A very easy to use Discord.js bot with cool, funny and very useful moderation co
 * Give the bot Admin permissions for it to function properly. 
 
 ## Changes
-* Add your bot token in the ```botconfig.json``` file. Get your bot token from [Discord API portal](https://discordapp.com/developers/docs/intro)
+* Add your bot token in the ```botconfig.json``` file. You can get your bot token from [Discord API portal](https://discordapp.com/developers/docs/intro)
 
 ## Change-log
 * Muting, Warning, Xp and Coins systems have been added.
