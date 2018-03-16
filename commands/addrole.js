@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-  //!addrole @andrew Dog Person
   
   if(args[0] == "help"){
     message.reply("Usage: !addrole <user> <role>");

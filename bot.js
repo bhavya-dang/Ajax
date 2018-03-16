@@ -27,7 +27,7 @@ bot.on('ready', () => {
   setTimeout(function(){
     console.log(`Logged in as ${bot.user.tag}`);
   }, 2000);
-  bot.user.setActivity(`${bot.guilds.size} servers | ${bot.users.size} users`,{type: "WATCHING"});
+  bot.user.setActivity(`t.help | ${bot.guilds.size} servers | ${bot.users.size} users`,{type: "PLAYING"});
 })
 
 function loadCmds() {
@@ -55,7 +55,7 @@ loadCmds();
 bot.on("message", async message => {
     if(message.author.bot) return undefined;
     if(message.channel.type === 'dm') return undefined;
-  let prefix = botconfig.prefix;
+    let prefix = botconfig.prefix;
 
     let args = message.content.slice(prefix.length).trim().split(" ");
     let cmd = args.shift().toLowerCase();
@@ -130,8 +130,8 @@ bot.on("message", async message => {
 
 });
   bot.on('guildMemberAdd', member => {
-  const channel = member.guild.channels.find('name', 'member-log');
-  if (!channel) return;
+     const channel = member.guild.channels.find('name', 'member-log');
+     if (!channel) return;
     const members = member.guild.memberCount;
     
    let aRole = member.guild.roles.find('name', "Regular");
@@ -140,7 +140,7 @@ bot.on("message", async message => {
     member.addRole(aRole.id);
   channel.send(`${member} has joined the party!:confetti_ball:`)
   });
-  bot.on('guildMemberRemove', member => {
+bot.on('guildMemberRemove', member => {
   const channel = member.guild.channels.find('name', 'member-log');
   if (!channel) return;
     const members = member.guild.memberCount;
