@@ -2,10 +2,10 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
   let msg = await message.channel.send("Generating....");
-  let target = message.guild.iconURL;
+  let sicon = message.guild.iconURL;
 await message.channel.send({files:[
     {
-      attachment: target,
+      attachment: sicon,
       name: "icon.jpg"
     }
     

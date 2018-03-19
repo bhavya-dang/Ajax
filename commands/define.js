@@ -6,14 +6,14 @@ module.exports.run = async (bot, message, args) => {
   
   urban(str).first(json => {
    if(!json) return message.reply("Sorry. No results found.")
-  console.log(json);
+  
     
     let uEmbed = new Discord.RichEmbed()
     .setTitle(json.word)
     .setDescription(json.definition || "None")
     .addField("Upvotes :arrow_up_small: ", json.thumbs_up, true)
     .addField("Downvotes :arrow_down_small: ", json.thumbs_down, true)
-    .setAuthor(`Author: ${json.author}`, );
+    .setAuthor(`Author: ${json.author}`);
     message.channel.send(uEmbed);
   });
 }

@@ -1,23 +1,22 @@
 const Discord = require("discord.js");
 
-
-module.exports.run = async (bot, message, args) => {
-  const number = Math.floor(Math.random() * 2) + 1;
-        if (number === 1) {
-        const hEmbed = new Discord.RichEmbed()
-          .setTitle('**Coinflip result:**')
-          .setImage('https://i.imgur.com/EzqKNjh.png')
-          .setColor(0xD4AF37)
-          return message.channel.send({ hEmbed });
-        } else {
-          const embed = new Discord.RichEmbed()
-            .setTitle('**Coinflip result:**')
-            .setImage('https://i.imgur.com/G3REour.png')
-            .setColor(0xD4AF37)
-            return message.channel.send({ embed });
-        }
+module.exports.run = async (client, message, args) => {
+    var resultflip = Math.floor((Math.random() * 2) + 1);
+    if (resultflip == 1) {
+              const embedheads = new Discord.RichEmbed()
+            .setTitle("Coinflip")
+            .setColor("#F8A61C")
+            .setDescription("Flipped a coin and it landed on heads!");
+        message.channel.send(embedheads);
+    } else if (resultflip == 2) {
+              const embedtails = new Discord.RichEmbed()
+            .setTitle("Coinflip")
+            .setColor("#F8A61C")
+            .setDescription("Flipped a coin and it landed on tails!");
+              message.channel.send(embedtails);
 }
-
+  }
+ 
 module.exports.help = {
   name: "flip"
 }

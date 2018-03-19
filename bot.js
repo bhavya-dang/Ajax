@@ -1,3 +1,15 @@
+const http = require('http');
+const express = require('express');
+const app = express();
+app.get("/", (request, response) => {
+  console.log(Date.now() + " Ping Received");
+  response.sendStatus(200);
+});
+app.listen(process.env.PORT);
+setInterval(() => {
+  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+}, 280000);
+
 const Discord = require("discord.js");
 const botconfig = require("./botconfig.json");
 const fs = require("fs");
@@ -5,6 +17,7 @@ const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 const coins = require("./coins.json");
 const xp = require("./xp.json");
+
 
 
 bot.on('ready', () => {
@@ -18,7 +31,7 @@ bot.on('ready', () => {
   bot.user.setActivity(`t.help | ${bot.guilds.size} servers | ${bot.users.size} users`,{type: "PLAYING"});
 })
 
-function loadCmds() {
+
 fs.readdir("./commands/", (err, files) => {
 
   if(err) console.log(err);
@@ -36,10 +49,8 @@ fs.readdir("./commands/", (err, files) => {
     bot.commands.set(props.help.name, props);
   });
 });
-}
 
 
-loadCmds();
 bot.on("message", async message => {
     if(message.author.bot) return undefined;
     if(message.channel.type === 'dm') return undefined;
@@ -68,16 +79,14 @@ bot.on("message", async message => {
     };
   }
 
-
-
   if(!coins[message.author.id]){
     coins[message.author.id] = {
       coins: 0
     };
   }
 
-  let coinAmt = Math.floor(Math.random() * 100) + 1;
-  let baseAmt = Math.floor(Math.random() * 100) + 1;
+  let coinAmt = Math.floor(Math.random() * 7) + 8;
+  let baseAmt = Math.floor(Math.random() * 7) + 8;
   console.log(`${coinAmt} ; ${baseAmt}`);
 
   if(coinAmt === baseAmt){
@@ -87,11 +96,16 @@ bot.on("message", async message => {
   fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
     if (err) console.log(err)
   });
-    
-  
+  let coinEmbed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setThumbnail(message.author.displayAvatarURL)
+  .setColor("#42f45c")
+  .addField("💸", `${coinAmt} coins added!`);
+
+  message.channel.send(coinEmbed).then(msg => {msg.delete(5000)});
   }
 
-  let xpAdd = Math.floor(Math.random() * 4) + 3;
+  let xpAdd = Math.floor(Math.random() * 7) + 8;
   console.log(xpAdd);
 
   if(!xp[message.author.id]){
@@ -108,8 +122,12 @@ bot.on("message", async message => {
   xp[message.author.id].xp =  curxp + xpAdd;
   if(nxtLvl <= xp[message.author.id].xp){
     xp[message.author.id].level = curlvl + 1;
-
-    console.log("New Level", curlvl + 1);
+    let lvlup = new Discord.RichEmbed()
+    .setTitle("Level Up!")
+    .setColor('RANDOM')
+    .addField("New Level", curlvl + 1)
+    .setThumbnail(message.author.displayAvatarURL);
+    message.channel.send(lvlup).then(msg => {msg.delete(5000)});
   }
   fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
     if(err) console.log(err)
@@ -121,11 +139,6 @@ bot.on("message", async message => {
      const channel = member.guild.channels.find('name', 'member-log');
      if (!channel) return;
     const members = member.guild.memberCount;
-    
-   let aRole = member.guild.roles.find('name', "Regular");
-    if (!aRole) return member.channel.send(`${aRole} not found.`)
-    
-    member.addRole(aRole.id);
   channel.send(`${member} has joined the party!:confetti_ball:`)
   });
 bot.on('guildMemberRemove', member => {
@@ -139,4 +152,4 @@ bot.on('guildCreate', guild => {
   guild.channel.send(`Thank You for adding me in ${guild}. Type t.help to see my commands! `)
   });
 
-bot.login(botconfig.token);
+bot.login(process.env.TOKEN);
