@@ -3,7 +3,7 @@ const urban = require("urban");
 module.exports.run = async (bot, message, args) => {
   let str = args.join(" ");
   if(args.length < 1) return message.reply("Please specify something to define.");
-  
+
   urban(str).first(json => {
    if(!json) return message.reply("Sorry. No results found.")
   

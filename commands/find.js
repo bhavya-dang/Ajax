@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
 
 	let searchTerm = args[0];
 	if(!searchTerm) return message.channel.send("Please provide a search term.");
-
+  
 	let matches = users.filter(u => u.tag.toLowerCase().includes(searchTerm.toLowerCase()));
   
           const embed = new Discord.RichEmbed()

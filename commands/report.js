@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("Kicked In", message.channel)
   .addField("Time", message.createdAt)
   .addField("Reason", reason);
-  let reportschannel = message.guild.channels.find(`name`, "reports");
+  let reportschannel = message.guild.channels.find(`name`, "mod-log");
   message.delete()
   reportschannel.send(reportEmbed);
 

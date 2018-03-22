@@ -67,17 +67,8 @@ bot.on("message", async message => {
         commandFile.run(bot, message, args);
         if(!commandFile) return message.channel.send("No command found with that name.");
     } catch (e) { console.log(e) }
-
-
   
 
-  
-   let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
-  if(!prefixes[message.guild.id]){
-    prefixes[message.guild.id] = {
-      prefixes: botconfig.prefix
-    };
-  }
 
   if(!coins[message.author.id]){
     coins[message.author.id] = {
@@ -139,7 +130,9 @@ bot.on("message", async message => {
      const channel = member.guild.channels.find('name', 'member-log');
      if (!channel) return;
     const members = member.guild.memberCount;
-  channel.send(`${member} has joined the party!:confetti_ball:`)
+  channel.send(`${member} has joined the party!:confetti_ball: Now we have ${members} members. t.help for my commands! `);
+    var role = member.guild.roles.find(`name`, 'Regular');
+    member.addRole(`${role.id}`);
   });
 bot.on('guildMemberRemove', member => {
   const channel = member.guild.channels.find('name', 'member-log');
