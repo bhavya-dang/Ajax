@@ -21,8 +21,8 @@ let uptimeEmbed = new Discord.RichEmbed()
 .addField('RAM usage', `${ramUsage} mb`, true)
 .addField('CPU usage', Math.floor(cpuUsage.user/cpuUsage.system) + '%', true)
 .addField('Developer', "Tritax#2924", true)
-.addField("Discord.js", "v11.3.2", true)
-.addField('Version', "v1.0.7")
+.addField("Discord.js", ` v${Discord.version}`, true)
+.addField('Node', `${process.version}`, true)
 .setTimestamp();
 message.channel.send(uptimeEmbed);
 

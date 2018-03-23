@@ -13,7 +13,7 @@ setInterval(() => {
 const Discord = require("discord.js");
 const botconfig = require("./botconfig.json");
 const fs = require("fs");
-const bot = new Discord.Client();
+let bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 const coins = require("./coins.json");
 const xp = require("./xp.json");
@@ -127,12 +127,16 @@ bot.on("message", async message => {
 
 });
   bot.on('guildMemberAdd', member => {
-     const channel = member.guild.channels.find('name', 'member-log');
+     const members = member.guild.memberCount;
+    const channel = member.guild.channels.find('name', 'general');
      if (!channel) return;
-    const members = member.guild.memberCount;
-  channel.send(`${member} has joined the party!:confetti_ball: Now we have ${members} members. t.help for my commands! `);
-    var role = member.guild.roles.find(`name`, 'Regular');
-    member.addRole(`${role.id}`);
+
+      let Embed = new Discord.RichEmbed()
+      .setTitle(`${member.displayName}, Welcome to ${member.guild.name}`)
+      .setColor(0xD4AF37)
+      .setDescription(`I'm sure you have a lot of questions. \nPlease take a look at #rules-info!\nType t.help to see my commands!\nHave a great time here!`)
+      .addField('Users: ', `${members}`, true)
+    channel.send(Embed);
   });
 bot.on('guildMemberRemove', member => {
   const channel = member.guild.channels.find('name', 'member-log');
