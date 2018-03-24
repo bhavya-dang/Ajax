@@ -76,8 +76,8 @@ bot.on("message", async message => {
     };
   }
 
-  let coinAmt = Math.floor(Math.random() * 7) + 8;
-  let baseAmt = Math.floor(Math.random() * 7) + 8;
+  let coinAmt = Math.floor(Math.random() * 15) + 14;
+  let baseAmt = Math.floor(Math.random() * 15) + 14;
   console.log(`${coinAmt} ; ${baseAmt}`);
 
   if(coinAmt === baseAmt){
@@ -96,7 +96,7 @@ bot.on("message", async message => {
   message.channel.send(coinEmbed).then(msg => {msg.delete(5000)});
   }
 
-  let xpAdd = Math.floor(Math.random() * 7) + 8;
+  let xpAdd = Math.floor(Math.random() * 15) + 14;
   console.log(xpAdd);
 
   if(!xp[message.author.id]){
