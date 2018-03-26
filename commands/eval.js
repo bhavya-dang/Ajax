@@ -15,15 +15,15 @@ module.exports.run = async (bot, message, args) => {
 }try {
       const code = args.join(" ");
       let evaled = eval(code);
-
+      let rawEvaled = evaled;
       if (typeof evaled !== "string")
         evaled = require("util").inspect(evaled);
-  
   
   let embed = new Discord.RichEmbed()
       .setTitle(`Evaluated in ${Math.round(bot.ping)}ms`)
       .addField(":inbox_tray: Input", `\`\`\`xl\n${code}\n\`\`\``)
       .addField(":outbox_tray: Output", `\`\`\`xl\n${clean(evaled).replace(bot.token, "NO TOKEN FOR YOU!")}\n\`\`\``)
+      .addField('Type', `\`\`\`xl\n${(typeof rawEvaled).substr(0, 1).toUpperCase() + (typeof rawEvaled).substr(1)}\n\`\`\``)
       .setColor('GREEN');
       message.channel.send({embed});
     } catch (err) {

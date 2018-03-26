@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
+module.exports.run = async (bot, message, args) => {
     var resultflip = Math.floor((Math.random() * 2) + 1);
     if (resultflip == 1) {
               const embedheads = new Discord.RichEmbed()

@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
   .setAuthor("49 Total Commands", bot.user.displayAvatarURL)
   .setColor("#c5f4a6")
   .setDescription("It\'s prefix is `t.` Type `t.commands` for more info.")
-  .addField("**Core Commands**", "`help`|`invite`|`betatester`")
+  .addField("**Core Commands**", "`help`|`invite`|`betatester`|`info`")
   .addField("**Moderation Commands**", "`ban`|`kick`|`warn`|`report`")
   .addField("**Utility Commands**", "`serverstats`|`stats`|`userstats`|`tempmute`|`weather`|`ping`|`say`|`docs`\n`clear`|`purge`|`reload`|`add`|`subtract`|`setgame`|`define`|`icon`|\n`shorten`|`find`|`auto`|`svs`|`google`|`rdefine`")
   .addField("**Developer Commands**", "`eval`|`restart`|`reload`")

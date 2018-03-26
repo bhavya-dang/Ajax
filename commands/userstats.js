@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const moment = require("moment");
 require("moment-duration-format");
+const ms = require('ms');
 module.exports.run = async (bot, message, args) => {
   
 
@@ -14,8 +15,8 @@ module.exports.run = async (bot, message, args) => {
   .addField("**ID**", message.author.id, true)
   .addField("**Status**",message.author.presence.status, true)
   .addField("**Playing**", `${message.author.presence.game ? `${message.author.presence.game.name}` : "Not playing anything."}`)
-  .addField("**Acc. Created At**", `${moment.utc(message.author.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss")}`)
-  .addField("**Joined At**", `${moment.utc(message.member.joinedAt).format("dddd, MMMM Do YYYY, HH:mm:ss")}`);
+  .addField("**Acc. Created At**", `${moment.utc(message.author.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss")} (${ms(Date.now()- message.author.createdAt, {long: true})})`)
+  .addField("**Joined At**", `${moment.utc(message.member.joinedAt).format("dddd, MMMM Do YYYY, HH:mm:ss")} (${ms(Date.now()- message.guild.joinedAt, {long: true})})`);
 
   message.channel.send(uEmbed);
 }

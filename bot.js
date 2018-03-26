@@ -17,6 +17,7 @@ let bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 const coins = require("./coins.json");
 const xp = require("./xp.json");
+const db = require('quick.db');
 
 
 
@@ -53,7 +54,8 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("message", async message => {
     if(message.author.bot) return undefined;
-    if(message.channel.type === 'dm') return undefined;
+    if(message.channel.type === 'dm') return ;
+  db.add(`messagesSent_${message.author.id}`, 1);
     let prefix = botconfig.prefix;
 
     let args = message.content.slice(prefix.length).trim().split(" ");
@@ -61,12 +63,14 @@ bot.on("message", async message => {
 
     if(message.author.bot) return undefined;;
     if(!message.content.startsWith(prefix)) return undefined;
+  
 
     try {
         let commandFile = require(`./commands/${cmd}.js`);
         commandFile.run(bot, message, args);
         if(!commandFile) return message.channel.send("No command found with that name.");
     } catch (e) { console.log(e) }
+  
   
 
 
