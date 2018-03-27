@@ -21,6 +21,7 @@ const db = require('quick.db');
 
 
 
+
 bot.on('ready', () => {
   console.log("Loading...");
   setTimeout(function(){
@@ -67,7 +68,7 @@ bot.on("message", async message => {
 
     try {
         let commandFile = require(`./commands/${cmd}.js`);
-        commandFile.run(bot, message, args);
+        commandFile.run(bot, message, args, queue);
         if(!commandFile) return message.channel.send("No command found with that name.");
     } catch (e) { console.log(e) }
   
