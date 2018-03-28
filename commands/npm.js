@@ -14,7 +14,8 @@ module.exports.run = async (bot, message, args) => {
       let deps = version.dependencies ? Object.keys(version.dependencies) : null;
       // Grab the list of maintainers.
       let maintainers = body.maintainers.map(user => user.name);
-      
+        let github = version.repository.url
+      let gitshort = github.slice(23, -4)
 
       // If there's more than 10 maintainers, we want to truncate them down.
       if (maintainers.length > 10) {
@@ -52,7 +53,7 @@ module.exports.run = async (bot, message, args) => {
         
         .addField('Dependencies', `${deps && deps.length ? deps.join(', ') : '*None*'}\n\u200B`, false)
         .addField('\`NPMjs Package\`', `[\`https://www.npmjs.com/package/${query.toLowerCase()}\`](https://www.npmjs.com/package/${query.toLowerCase()})`)
-      
+      .addField('\`Github Repository\`', `[\`https://github.com/${gitshort}\`](https://github.com/${gitshort})`)
 
 
         

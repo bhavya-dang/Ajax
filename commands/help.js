@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
 
   let icon = bot.user.displayAvatarURL;
   let hEmbed = new Discord.RichEmbed()
-  .setAuthor("51 Total Commands", bot.user.displayAvatarURL)
+  .setAuthor("52 Total Commands", bot.user.displayAvatarURL)
   .setColor("#c5f4a6")
   .setDescription("It\'s prefix is `t.` Type `t.commands` for more info.")
   .addField("**Core Commands**", "`help`|`invite`|`betatester`|`info`")
