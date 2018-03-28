@@ -68,7 +68,7 @@ bot.on("message", async message => {
 
     try {
         let commandFile = require(`./commands/${cmd}.js`);
-        commandFile.run(bot, message, args, queue);
+        commandFile.run(bot, message, args);
         if(!commandFile) return message.channel.send("No command found with that name.");
     } catch (e) { console.log(e) }
   

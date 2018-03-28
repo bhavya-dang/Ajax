@@ -33,12 +33,19 @@ module.exports.run = async (bot, message, args) => {
 
   let warnchannel = message.guild.channels.find(`name`, "mod-log");
   if(!warnchannel) return message.reply("Couldn't find channel");
-
   warnchannel.send(warnEmbed);
+  message.channel.send(":white_check_mark: **| That user has been warnt.**");
+  
+  let embed = new Discord.MessageEmbed()
+  .setTitle("Warning")
+  .addField("Warned By", message.member)
+  .addField("Number of Warnings", warns[wUser.id].warns)
+  .addField("Reason", reason);
+  wUser.send(embed);
 
   if(warns[wUser.id].warns == 5){
-    let muterole = message.guild.roles.find(`name`, "muted");
-    if(!muterole) return message.reply("You should create that role dude.");
+    let muterole = message.guild.roles.find(`name`, "Muted");
+    if(!muterole) return message.reply("That role does not exist.");
 
     let mutetime = "12h";
     await(wUser.addRole(muterole.id));

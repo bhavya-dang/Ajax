@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
   .setDescription("It\'s prefix is `t.` Type `t.commands` for more info.")
   .addField("**Core Commands**", "`help`|`invite`|`betatester`|`info`")
   .addField("**Moderation Commands**", "`ban`|`kick`|`warn`|`report`|`msent`")
-  .addField("**Utility Commands**", "`serverstats`|`stats`|`userstats`|`tempmute`|`weather`|`ping`|`say`|`docs`\n`clear`|`purge`|`reload`|`add`|`subtract`|`setgame`|`define`|`icon`|\n`shorten`|`find`|`auto`|`svs`|`google`|`rdefine`")
+  .addField("**Utility Commands**", "`serverstats`|`stats`|`userstats`|`tempmute`|`weather`|`ping`|`say`|`docs`\n`clear`|`purge`|`reload`|`add`|`subtract`|`setgame`|`define`|`icon`|\n`shorten`|`find`|`auto`|`svs`|`google`|`rdefine`|`npm`")
   .addField("**Developer Commands**", "`eval`|`restart`|`reload`")
   .addField("**User Commands**", "`coins`|`level`|`warnlvl`|`pay`|`avatar`|`announce`")
   .addField("**Fun Commands**","`8ball`|`poll`|`roll`|`test`|`doggo`|`kitten`|`flip`|`slots`|`joke`|`ascii`|\n`poke`|`get`", true)
