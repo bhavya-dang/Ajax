@@ -57,7 +57,7 @@
     "ffmepg": "^1.0.2",
     "ytdl-core": "^0.20.2",
     "node-opus": "^0.2.7",
-    "replypages-discordjs": "^1.1.0",
+    "replypages-discordjs": "^1.1.5",
     "parse-ms": "^1.0.1"
   }
 }

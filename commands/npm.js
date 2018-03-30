@@ -16,6 +16,7 @@ module.exports.run = async (bot, message, args) => {
       let maintainers = body.maintainers.map(user => user.name);
         let github = version.repository.url
       let gitshort = github.slice(23, -4)
+      
 
       // If there's more than 10 maintainers, we want to truncate them down.
       if (maintainers.length > 10) {
@@ -39,7 +40,7 @@ module.exports.run = async (bot, message, args) => {
         trim: false
       });
 
-      // Now we just need to present the data to the end user.
+    // Now we just need to present the data to the end user.
       const embed = new Discord.RichEmbed()
         .setColor(0xCB3837)
         .setAuthor(`${body.name} - npmjs Package Information`, 'https://i.imgur.com/ErKf5Y0.png')
@@ -53,13 +54,10 @@ module.exports.run = async (bot, message, args) => {
         
         .addField('Dependencies', `${deps && deps.length ? deps.join(', ') : '*None*'}\n\u200B`, false)
         .addField('\`NPMjs Package\`', `[\`https://www.npmjs.com/package/${query.toLowerCase()}\`](https://www.npmjs.com/package/${query.toLowerCase()})`)
-      .addField('\`Github Repository\`', `[\`https://github.com/${gitshort}\`](https://github.com/${gitshort})`)
-
-
-        
+      .addField('\`Github Repository\`', `[\`https://github.com/${gitshort}\`](https://github.com/${gitshort})` )
       message.channel.send({embed});
     } catch (error) {
-      if (error.status === 404) message.reply('Could not find any results.');
+       if(error.status == 404) return message.channel.send('**Could not find any results.**');
       console.log(error);
     }  
     
