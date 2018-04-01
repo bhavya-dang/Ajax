@@ -30,7 +30,7 @@
 	setTimeout(function(){
 	console.log(`Logged in as ${bot.user.tag}`);
 	}, 2000);
-	bot.user.setActivity(`t.help | ${bot.guilds.size} servers | ${bot.users.size} users`,{type: "PLAYING"});
+	bot.user.setActivity(`t!help | ${bot.guilds.size} servers | ${bot.users.size} users`,{type: "PLAYING"});
 	})
 
 
@@ -138,7 +138,7 @@
 	let role = member.guild.roles.find(`name`, "User");
 	member.addRole(role.id)
 	let Embed = new Discord.RichEmbed()
-	.setTitle(`${member}, Welcome to ${member.guild.name}`)
+	.setTitle(`${member.displayName}, Welcome to ${member.guild.name}`)
 	.setColor(0xD4AF37)
 	.setDescription(`I'm sure you have a lot of questions.\nPlease take a look at #rules-info!\nType t.help to see my commands!\nHave a great time here!`)
 	.addField('Users: ', `${members}`, true)

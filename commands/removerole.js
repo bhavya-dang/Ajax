@@ -14,6 +14,7 @@ module.exports.run = async (bot, message, args) => {
 
   try{
     await rMember.send(`RIP, you lost the ${gRole.name} role.`)
+    message.channel.send(`RIP, ${rMember} you hsve lost the ${gRole.name}`)
   }catch(e){
     message.channel.send(`RIP to <@${rMember.id}>, We removed ${gRole.name} from them. We tried to DM them, but their DMs are locked.`)
   }

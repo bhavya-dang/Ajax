@@ -26,9 +26,9 @@
     "superagent": "^3.8.2",
     "ms": "^2.1.1",
     "profanities": "^2.6.0",
-    "quick.db": "^5.3.8",
+    "quick.db": "^5.5.1",
     "giphy-api": "^1.2.7",
-    "moment": "^2.21.0",
+    "moment": "^2.22.0",
     "moment-duration-format": "^2.2.2",
     "discord-eco": "^0.0.10",
     "slot-machine": "^2.1.0",
@@ -52,12 +52,18 @@
     "cheerio": "^0.22.0",
     "querystring": "^0.2.0",
     "quick.hook": "^1.2.2",
-    "node": "^9.9.0",
+    "node": "^9.10.1",
     "ffmpeg": "^0.0.4",
     "ffmepg": "^1.0.2",
     "ytdl-core": "^0.20.2",
     "node-opus": "^0.2.7",
     "replypages-discordjs": "^1.1.5",
-    "parse-ms": "^1.0.1"
+    "parse-ms": "^1.0.1",
+    "xml2js": "^0.4.19",
+    "https": "^1.0.0",
+    "request": "^2.85.0",
+    "he": "^1.1.1",
+    "fortnite": "^3.0.0",
+    "random-puppy": "^1.1.0"
   }
 }

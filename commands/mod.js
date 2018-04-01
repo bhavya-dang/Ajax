@@ -1,0 +1,21 @@
+const Discord = require("discord.js");
+
+module.exports.run = async (bot, message, args) => {
+
+let embed = new Discord.RichEmbed()
+    .setTitle("Moderation")
+    .setDescription("There are currently 7 commands in this category.")
+    .addField("`t!ban`", "Ban a member.")
+    .addField("`t!clear`", "Clear messages")
+    .addField("`t!kick`", "Kick a member.")
+    .addField("`t!msent`", "Check messages sent so far.")
+    .addField("`t!purge`", "Clears a member's messages.")
+    .addField("`t!warn`", "Warn a member.")
+    .addField("`t!warnlvl`", "Check a user's warn level.")
+
+message.channel.send(embed);
+}
+
+module.exports.help = {
+  name: "mod"
+}
