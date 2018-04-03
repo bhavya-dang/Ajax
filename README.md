@@ -21,10 +21,6 @@ A multi-purpose bot created by Tritax#2924.<br>
 
 [Click here](https://discordbots.org/bot/421925809532436481/) to get my bot's invite.<br>
 [Click here](https://discordbots.org/servers/421853697027473408/edit) for my server's profile.<br>
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 .button {
   border-radius: 4px;
@@ -65,13 +61,8 @@ A multi-purpose bot created by Tritax#2924.<br>
   right: 0;
 }
 </style>
-</head>
-<body>
 
-<h2>Animated Button</h2>
 
 <button class="button"><span>Hover </span></button>
 
-</body>
-</html>
 
