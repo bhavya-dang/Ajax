@@ -14,6 +14,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("`t!joke`", "Get a random joke.")
     .addField("`t!roll`", "Roll a number between 1-100")
     .addField("`t!flip`", "Flip a coin and gamble money.")
+    .addField("`t!poke`", "Poke a user.")
     .addField("`t!slots`", "Roll the slots!")
     .addField("`t!test`", "Test if the the bot is online :information_desk_person: ")
     message.channel.send(embed)

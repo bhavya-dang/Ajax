@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args)  => {
 
       message.channel.send(`You already collected this, please wait **${timeObj.hours}h ${timeObj.minutes}m**!`);
     } else {
-      message.channel.send(`You have successfully received ${amount}`);
+      message.channel.send(`You have successfully received **$${amount}**`);
 
       db.set(`lastDaily_${message.author.id}`, Date.now());
       db.add(`userBalance_${message.author.id}`, 250);

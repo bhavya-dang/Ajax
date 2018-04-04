@@ -1,41 +1,35 @@
-const superagent = require('superagent');
+const google = require('google');
 const Discord = require('discord.js');
+var profanities = require('profanities');
+ 
 
-
-module.exports.run = async (bot, message, args) => {
-  
-  const cheerio = require('cheerio'),
-      snekfetch = require('snekfetch'),
-      querystring = require('querystring');
-
-
-   // These are our two variables. One of them creates a message while we preform a search,
-   // the other generates a URL for our crawler.
-   let searchMessage = await message.channel.send('Searching... Sec.');
-   let searchUrl = `https://www.google.com/search?q=${encodeURIComponent(message.content)}`;
-
-   // We will now use snekfetch to crawl Google.com. Snekfetch uses promises so we will
-   // utilize that for our try/catch block.
-   return snekfetch.get(searchUrl).then((result) => {
-
-      // Cheerio lets us parse the HTML on our google result to grab the URL.
-      let $ = cheerio.load(result.text);
-
-      // This is allowing us to grab the URL from within the instance of the page (HTML)
-      let googleData = $('.r').first().find('a').first().attr('href');
-
-      // Now that we have our data from Google, we can send it to the channel.
-      googleData = querystring.parse(googleData.replace('/url?', ''));
-      searchMessage.edit(`Result found!\n${googleData.q}`);
-
-  // If no results are found, we catch it and return 'No results are found!'
-  }).catch((err) => {
-     searchMessage.edit('No results found!');
-  });
+module.exports.run = (bot, message, args) => {
+    
+    let searchTerm = args[0];
+    if (!searchTerm) return message.channel.send("**Please specify something to search.**");
+    if(searchTerm.toLowerCase() === profanities.length && !message.channel.nsfw) return message.channel.send("This is not a NSFW channel");
+    
+    google.resultsPerPage = 25;
+    google(searchTerm, function (err, res) {
+        if (err) return message.channel.send("**No Results found!**")
+        for (var i = 0; i < res.links.length; ++i) {
+            var link = res.links[i];
+            if (!link.href) {
+                res.next;
+            } else {
+                let embed = new Discord.RichEmbed()
+                    .setColor(`#ffffff`)
+                    .setAuthor(`Result for "${searchTerm}"`, `https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2000px-Google_%22G%22_Logo.svg.png`)
+                    .setDescription(`**Link**: [${link.title}](${link.href})\n**Description**:\n${link.description ? link.description : "No description found."}`)
+                    
+                return message.channel.send({
+                    embed: embed
+                });
+            }
+        }
+    });
 }
-
 
 module.exports.help = {
   name: "google"
 }
-

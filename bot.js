@@ -137,12 +137,17 @@
 	if (!channel) return;
 	let role = member.guild.roles.find(`name`, "User");
 	member.addRole(role.id)
+ let Role = member.guild.roles.find(`name`, "Bots");
+	member.addRole(Role.id)
+ 
 	let Embed = new Discord.RichEmbed()
 	.setTitle(`${member.displayName}, Welcome to ${member.guild.name}`)
 	.setColor(0xD4AF37)
-	.setDescription(`I'm sure you have a lot of questions.\nPlease take a look at #rules-info!\nType t.help to see my commands!\nHave a great time here!`)
+	.setDescription(`I'm sure you have a lot of questions.\nPlease take a look at #rules-info!\nType t!help to see my commands!\nHave a great time here!`)
 	.addField('Users: ', `${members}`, true)
+  .addField("Bot", `${member.user.bot ? "Yes" : "No"}`)
 	channel.send(Embed);
+    
 	});
 	bot.on('guildMemberRemove', member => {
 	const channel = member.guild.channels.find('name', 'bot-spam');

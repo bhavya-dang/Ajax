@@ -4,6 +4,9 @@ require("moment-duration-format");
 const ms = require('ms');
 
 module.exports.run = async (bot, message, args) => {
+  let roles = message.guild.roles.size;
+  let bots = message.guild.members.filter(m => m.user.bot).size;
+  let humans = message.guild.members.filter(m => !m.user.bot).size;
   let channels = message.guild.channels.size;
   let textChannels = message.guild.channels.filter(m => m.type == "text").size;
   let voiceChannels = message.guild.channels.filter(i => i.type == "voice").size;
@@ -15,9 +18,12 @@ module.exports.run = async (bot, message, args) => {
   .setThumbnail(sicon)
   .addField("**Server Name:**", message.guild.name)
   .addField("**Total Members:**", message.guild.memberCount, true)
+  .addField("**Bots:**", `${bots}`, true)
+    .addField("**Users:**", `${humans}`, true)
   .addField("**Channels:**", `${channels}`, true)
   .addField("**Text Channels:**", `${textChannels}`, true)
   .addField("**Voice Channels:**", `${voiceChannels}`, true)
+  .addField("**Roles**", `${roles}`, true)
   .addField("**OwnerID:**", message.guild.ownerID)
   .addField("**ID:**", message.guild.id)
   .addField("**Verification Level:**", message.guild.verificationLevel, true)

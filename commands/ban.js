@@ -18,7 +18,15 @@ module.exports.run = async (bot, message, args) => {
 
   let reportschannel = message.guild.channels.find("name", "mod-log");
   if(!reportschannel) return message.channel.send("Can't find reports channel.");
-
+  let Embed = new Discord.RichEmbed()
+  .setDescription("Ban")
+  .setColor("#f45642")
+  .addField("Banned By", `<@${message.author.id}>`)
+  .addField("Banned In", message.channel)
+  .addField("Time", message.createdAt)
+  .addField("Reason", bReason);
+  
+  bUser.send(Embed)
   message.guild.member(bUser).ban(bReason);
   reportschannel.send(banEmbed);
 }

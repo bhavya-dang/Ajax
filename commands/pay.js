@@ -1,44 +1,28 @@
-const Discord = require("discord.js");
-const fs = require("fs");
-let coins = require("../coins.json");
+const Discord = require('discord.js');
+const db = require('quick.db')
 
 module.exports.run = async (bot, message, args) => {
-  //!pay @isatisfied 59345
+  if (!message.mentions.members.first()) return message.channel.send('**Please mention a user!**')
 
-  if(!coins[message.author.id]){
-    return message.reply("You don't have any coins!")
-  }
+  let targetMember = message.mentions.members.first(),
+    amount = parseInt(args.join(' ').replace(targetMember, ''))
 
-  let pUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+  if (isNaN(amount)) return message.channel.send('**Please define an amount!**')
 
-  if(!coins[pUser.id]){
-    coins[pUser.id] = {
-      coins: 0
-    };
-  }
+  let targetBalance = await db.fetch(`userBalance_${targetMember.id}`),
+    selfBalance = await db.fetch(`userBalance_${message.author.id}`),
+    startBalance = 0 // Starting Balance
 
-  let pCoins = coins[pUser.id].coins;
-  let sCoins = coins[message.author.id].coins;
+  if (targetBalance === null) targetBalance = startBalance
+  if (selfBalance === null) selfBalance = startBalance
 
-  if(sCoins < args[0]) return message.reply("Not enough coins there!");
+  if (amount > selfBalance) return message.channel.send('**Sorry you don\'t have enough money.**')
 
-  coins[message.author.id] = {
-    coins: sCoins - parseInt(args[1])
-  };
+  db.add(`userBalance_${targetMember.id}`, amount)
+  db.subtract(`userBalance_${message.author.id}`, amount)
 
-  coins[pUser.id] = {
-    coins: pCoins + parseInt(args[1])
-  };
-
-  message.channel.send(`${message.author} has given ${pUser} ${args[1]} coins.`);
-
-  fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
-    if(err) console.log(err)
-  });
-
-
+ message.channel.send(`**Successfully given $${amount} to ${targetMember.user.username}!**`)
 }
-
 module.exports.help = {
-  name: "give"
+  name: "pay"
 }

@@ -2,7 +2,7 @@ const Fortnite = require('fortnite');
 const stats = new Fortnite("5a8f8639-d749-4caf-8214-78afda2b1692"); // This will be your API key from the description in replace of 'process.env.TRN'
 const Discord = require('discord.js');
  
-exports.run = (client, message, args, tools) => {
+module.exports.run = (bot, message, args) => {
  
   // Now, we have 2 variables we need input for, first the platform, then the username.
   let platform;
@@ -18,7 +18,7 @@ exports.run = (client, message, args, tools) => {
  
   // Fetch Data
   stats.getInfo(username, platform).then( data => { // Data will now hold the response, the full JSON tree can be found in the description.
-   
+   console.log(data)
     // Now, since we have all the correct data, we can output an error message, or the user stats.
     // We can form an embed to respond in chat, make sure you require Discord to form these.
     const embed = new Discord.RichEmbed() // On the stable branch, this will be new Discord.RichEmbed()

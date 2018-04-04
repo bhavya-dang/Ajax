@@ -64,6 +64,7 @@
     "request": "^2.85.0",
     "he": "^1.1.1",
     "fortnite": "^3.0.0",
-    "random-puppy": "^1.1.0"
+    "random-puppy": "^1.1.0",
+    "google": "^2.1.0"
   }
 }

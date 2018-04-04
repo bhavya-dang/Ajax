@@ -14,7 +14,9 @@
         let deps = version.dependencies ? Object.keys(version.dependencies) : null;
         // Grab the list of maintainers.
         let maintainers = body.maintainers.map(user => user.name);
-        
+        let github = version.repository.url
+        let gitshort = github.slice(23, -4)
+
 
         // If there's more than 10 maintainers, we want to truncate them down.
         if (maintainers.length > 10) {
@@ -47,11 +49,12 @@
 
         .addField('Last Modified', `${updated} ago`, true)
         .addField('Version', `${body['dist-tags'].latest}`, true)
-        .addField('License', `${body.license ? body.license : '*None*'}\n\u200B`, true)
+        .addField('License', `${body.license}\n\u200B`, true)
         .addField('Maintainers', maintainers.join(', '), true)
 
         .addField('Dependencies', `${deps && deps.length ? deps.join(', ') : '*None*'}\n\u200B`, false)
         .addField('\`NPMjs Package\`', `[\`https://www.npmjs.com/package/${query.toLowerCase()}\`](https://www.npmjs.com/package/${query.toLowerCase()})`)
+        .addField('\`Github Repository\`', `[\`https://www.github.com/${gitshort}\`](https://www.github.com/${gitshort})`)
 
         message.channel.send({embed});
         } catch (error) {

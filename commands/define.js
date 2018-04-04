@@ -11,6 +11,7 @@ module.exports.run = async (bot, message, args) => {
     let uEmbed = new Discord.RichEmbed()
     .setTitle(json.word)
     .setDescription(json.definition || "None")
+    .addField("Example", json.example)
     .addField("Upvotes :arrow_up_small: ", json.thumbs_up, true)
     .addField("Downvotes :arrow_down_small: ", json.thumbs_down, true)
     .setAuthor(`Author: ${json.author}`);
