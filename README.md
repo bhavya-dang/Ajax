@@ -1,5 +1,5 @@
 # Tritax AI
-![Build Status]https://img.shields.io/badge/build-passing-brightgreen.svg) ![Version](https://img.shields.io/badge/version-v1.1.0-brightgreen.svg) <a href="https://discord.gg/HjJCwm5">
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg) ![Version](https://img.shields.io/badge/version-v1.1.0-brightgreen.svg) <a href="https://discord.gg/HjJCwm5">
         <img src="https://img.shields.io/discord/421853697027473408.svg?logo=discord"
             alt="chat on Discord"></a>
             
