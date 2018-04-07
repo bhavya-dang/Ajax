@@ -2,6 +2,7 @@ const Discord = require('discord.js')
 const db = require('quick.db')
 
 module.exports.run = async (bot, message, args) => {
+ 
   let balance = await db.fetch(`userBalance_${message.author.id}`)
   
   	let embed = new Discord.RichEmbed()

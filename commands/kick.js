@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
   let kReason = args.join(" ").slice(22);
   if(kUser.hasPermission("KICK_MEMBERS")) return message.channel.send("That person can't be kicked!");
 
-  let kickEmbed = new Discord.RichEmbed()
+  let kickEmbed = new Discord.MessageEmbed()
   .setDescription("Kick")
   .setColor("#f45642")
   .addField("Kicked User", `${kUser}`)

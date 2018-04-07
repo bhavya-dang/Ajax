@@ -1,19 +1,12 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-  let msg = await message.channel.send("Generating....");
-  let sicon = message.guild.iconURL;
-await message.channel.send({files:[
-    {
-      attachment: sicon,
-      name: "icon.jpg"
-    }
-    
-  ]});
-                       
-    msg.delete();
+  let embed = new Discord.RichEmbed()
+  .setTitle(message.member.tag + `Avatar Preview`)
+  .setImage(message.member.displayAvatarURL)
+  message.channel.send(embed)
 }
 
 module.exports.help = {
-  name: "avatar"
+  name: "icon"
 }

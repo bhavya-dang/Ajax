@@ -45,7 +45,7 @@
 
 
 	jsfile.forEach((f, i) =>{
-	delete require.cache[require.resolve(`./commands/${f}`)];
+	
 	let props = require(`./commands/${f}`);
 	console.log(`${f} loaded!`);
 	bot.commands.set(props.help.name, props);
@@ -94,7 +94,7 @@
 	});
 	let coinEmbed = new Discord.RichEmbed()
 	.setAuthor(message.author.username)
-	.setThumbnail(message.author.displayAvatarURL)
+	.setThumbnail(message.author.displayAvatarURL())
 	.setColor("#42f45c")
 	.addField("💸", `${coinAmt} coins added!`);
 
@@ -118,7 +118,7 @@
 	xp[message.author.id].xp =  curxp + xpAdd;
 	if(nxtLvl <= xp[message.author.id].xp){
 	xp[message.author.id].level = curlvl + 1;
-	let lvlup = new Discord.RichEmbed()
+	let lvlup = new Discord.Richmbed()
 	.setTitle("Level Up!")
 	.setColor('RANDOM')
 	.addField("New Level", curlvl + 1)
@@ -134,28 +134,33 @@
 	bot.on('guildMemberAdd', member => {
 	const members = member.guild.memberCount;
 	const channel = member.guild.channels.find('name', 'bot-spam');
+  const Channel = member.guild.channels.find('name', 'rules-info');
+  const cHannel = member.guild.channels.find('name', 'bot-invite');
 	if (!channel) return;
-	let role = member.guild.roles.find(`name`, "User");
-	member.addRole(role.id)
+	
  let Role = member.guild.roles.find(`name`, "Bots");
+    if(member.user.bot){
 	member.addRole(Role.id)
+    }else{
+      let role = member.guild.roles.find(`name`, "User");
+	member.addRole(role.id)
+    }
  
 	let Embed = new Discord.RichEmbed()
 	.setTitle(`${member.displayName}, Welcome to ${member.guild.name}`)
 	.setColor(0xD4AF37)
-	.setDescription(`I'm sure you have a lot of questions.\nPlease take a look at #rules-info!\nType t!help to see my commands!\nHave a great time here!`)
-	.addField('Users: ', `${members}`, true)
-  .addField("Bot", `${member.user.bot ? "Yes" : "No"}`)
+	.setDescription(`${member.displayName}, I am sure you have lot of questions. Before moving further, please read the rules in ${Channel}\nTo invite your bot please read the channel topic of ${cHannel}`)
+	.addField('Members', `${members}`, true)
+  .addField("Bot", `${member.user.bot ? "Yes" : "No"}`, true)
 	channel.send(Embed);
     
 	});
 	bot.on('guildMemberRemove', member => {
 	const channel = member.guild.channels.find('name', 'bot-spam');
 	if (!channel) return;
-	const members = member.guild.memberCount;
 	let Embed = new Discord.RichEmbed()
 	.setColor(0xD4AF37)
-	.setdescription(`member.displayName, has left the server! We have ${members} members now.`)
+	.setdescription(`${member.username}, has left the server!`)
 
 	channel.send(Embed);
 	});
@@ -163,5 +168,6 @@
 
 	guild.channel.send(`Thank You for adding me in ${guild}. Type t!help to see my commands! `)
 	});
+
 
 	bot.login(process.env.TOKEN);

@@ -65,6 +65,10 @@
     "he": "^1.1.1",
     "fortnite": "^3.0.0",
     "random-puppy": "^1.1.0",
-    "google": "^2.1.0"
+    "google": "^2.1.0",
+    "unfluff": "^3.0.0",
+    "fast-html-parser": "^1.0.1",
+    "get-json": "^2.0.0",
+    "chalk": "^2.3.2"
   }
 }
