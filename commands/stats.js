@@ -1,32 +1,36 @@
-const fs = require('fs');
-const Discord = require('discord.js');
-const moment = require('moment');
-require('moment-duration-format');
-
-
-module.exports.run = (bot, message, args) => {
-
-const uptime = moment.duration(bot.uptime).format(' D [days], H [hrs], m [mins], s [secs]');
-let ramUsage = (process.memoryUsage().rss / 1024 / 1024).toFixed(2);
-let platform = process.platform;  
-let cpuUsage = process.cpuUsage();
-let bicon = bot.user.displayAvatarURL;  
-let uptimeEmbed = new Discord.RichEmbed()
-.setTitle('Uptime')
-.setDescription(`Bot is online for ${uptime}!`)
-.setThumbnail(bicon)
-.addField('Users', bot.users.size, true)
-.addField('Servers', bot.guilds.size, true)
-.addField('Channels', bot.channels.size, true)
-.addField('RAM usage', `${ramUsage} mb`, true)
-.addField('CPU usage', Math.floor(cpuUsage.user/cpuUsage.system) + '%', true)
-.addField('Developer', "Tritax#2924", true)
-.addField("Discord.js", ` v${Discord.version}`, true)
-.addField('Node', `${process.version}`, true)
-.setTimestamp();
-message.channel.send(uptimeEmbed);
-
+const Discord = require("discord.js");
+var upSecs = 0;
+var upMins = 0;
+var upHours = 0;
+var upDays = 0;
+setInterval(function() {
+    upSecs = upSecs + 1
+    if (upSecs >= 60) {
+        upSecs = 0
+        upMins = upMins + 1
+    }
+    if (upMins >= 60) {
+        upMins = 0
+        upHours = upHours + 1
+    }
+    if (upHours >= 24) {
+        upHours = 0
+        upDays = upDays + 1
+    }
+}, 1000)
+module.exports.run = async (bot, message, args) => {
+    message.channel.send(`= STATISTICS =
+• Bot        :: ${bot.user.tag}
+• Developer  :: Tritax#2924
+• Mem Usage  :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB
+• Uptime     :: ${upDays} Day(s), ${upHours} Hour(s), ${upMins} Minute(s) and ${upSecs} Second(s)
+• Users      :: ${bot.users.size.toLocaleString()}
+• Servers    :: ${bot.guilds.size.toLocaleString()}
+• Channels   :: ${bot.channels.size.toLocaleString()}
+• Discord.js :: v${Discord.version}
+• Node       :: ${process.version}`, {code: "asciidoc"});
 }
+
 module.exports.help = {
-  name: "stats"
+    name: "stats"
 }

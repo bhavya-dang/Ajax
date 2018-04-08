@@ -30,7 +30,7 @@
 	setTimeout(function(){
 	console.log(`Logged in as ${bot.user.tag}`);
 	}, 2000);
-	bot.user.setActivity(`t!help | ${bot.guilds.size} servers | ${bot.users.size} users`,{type: "PLAYING"});
+	bot.user.setActivity(`t!help | ${bot.users.size} users`, {type: "PLAYING"});
 	})
 
 
@@ -165,8 +165,17 @@
 	channel.send(Embed);
 	});
 	bot.on('guildCreate', guild => {
-
-	guild.channel.send(`Thank You for adding me in ${guild}. Type t!help to see my commands! `)
+   guild.send(`Thank you for adding me to ${guild.name}. Type t!help to see a list of my available commands!`) 
+	let joinLogs = bot.channels.get("427175412976713729");
+  const embed = new Discord.RichEmbed()
+  .setColor(0x00AE86)
+  .setAuthor(`Joined ${guild.name}`)
+  .setThumbnail(guild.iconURL)
+  .addField("ID", guild.id, true)
+  .addField("Users", guild.memberCount, true)
+  .addField("Channels", guild.channels.size, true)
+  .addField("Roles", guild.roles.size, true)
+  joinLogs.send({embed: embed});
 	});
 
 

@@ -3,7 +3,7 @@ const ms = require('parse-ms');
 
 module.exports.run = async (bot, message, args)  => {
     let cooldown = 8.64e+7;
-    let amount = Math.floor(Math.random() * 1000) + 5000;
+    let amount = Math.floor(Math.random() * 1000) + 4000;
 
     let lastDaily = await db.fetch(`lastDaily_${message.author.id}`);
 
