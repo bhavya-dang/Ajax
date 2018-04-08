@@ -25,7 +25,7 @@ function getStatData(location, message , $){
 
      var UR_L = "http://csgo.tracker.network/profile/" + args[0];
 
-        if(!args[0]) return message.channel.send("Please Enter a valid STEAMID64 or custom url");
+        if(!args[0]) return message.channel.send("Please Enter a valid STEAMID64 or username");
         
 
         request(UR_L, function(err, resp, body){
