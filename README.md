@@ -1,7 +1,7 @@
 # Tritax AI
 [![Build Status](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)](https://travis-ci.org/travis-ci/travis-web) ![Version](https://img.shields.io/badge/version-v1.1.0-brightgreen.svg) <a href="https://discord.gg/HjJCwm5">
         <img src="https://img.shields.io/discord/421853697027473408.svg?logo=discord"
-            alt="chat on Discord"></a>
+            alt="chat on Discord"></a>[![active servers](https://discordbots.org/api/widget/servers/421925809532436481.svg)](https://discordbots.org/bot/421925809532436481)
             
 A multi-purpose bot created by Tritax#2924.<br>
 
@@ -16,6 +16,7 @@ A multi-purpose bot created by Tritax#2924.<br>
 - Fun
 - Meme
 - Fortnite
+- CS:GO
 
 ## Support
 
