@@ -26,7 +26,7 @@
     "superagent": "^3.8.2",
     "ms": "^2.1.1",
     "profanities": "^2.6.0",
-    "quick.db": "^5.5.1",
+    "quick.db": "^6.1.3",
     "giphy-api": "^1.2.7",
     "moment": "^2.22.0",
     "moment-duration-format": "^2.2.2",
@@ -52,7 +52,7 @@
     "cheerio": "^0.22.0",
     "querystring": "^0.2.0",
     "quick.hook": "^1.2.2",
-    "node": "^9.10.1",
+    "node": "^9.11.0",
     "ffmpeg": "^0.0.4",
     "ffmepg": "^1.0.2",
     "ytdl-core": "^0.20.2",
@@ -69,6 +69,10 @@
     "unfluff": "^3.0.0",
     "fast-html-parser": "^1.0.1",
     "get-json": "^2.0.0",
-    "chalk": "^2.3.2"
+    "chalk": "^2.3.2",
+    "dbl-api": "^1.0.0",
+    "dblapi.js": "^2.0.0",
+    "overwatch-api": "^0.2.4",
+    "encrypt_decrypt": "^1.0.0"
   }
 }

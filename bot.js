@@ -18,6 +18,8 @@
 	const coins = require("./coins.json");
 	const xp = require("./xp.json");
 	const db = require('quick.db');
+const DBL = require("dblapi.js");
+const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQyMTkyNTgwOTUzMjQzNjQ4MSIsImJvdCI6dHJ1ZSwiaWF0IjoxNTIzMTcwOTI3fQ.jxmuxYvy_RqN8yUNuoJo5zi0McXTZ5dzChBG6yeOt3c', bot);
 
 
 
@@ -30,8 +32,12 @@
 	setTimeout(function(){
 	console.log(`Logged in as ${bot.user.tag}`);
 	}, 2000);
-	bot.user.setActivity(`t!help | ${bot.users.size} users`, {type: "PLAYING"});
+	bot.user.setActivity(`t!help | ${bot.guilds.size} guilds | ${bot.users.size} users`, {type: "PLAYING"});
+    setInterval(() => {
+        dbl.postStats(bot.guilds.size)
+    }, 1800000);
 	})
+
 
 
 	fs.readdir("./commands/", (err, files) => {
@@ -118,7 +124,7 @@
 	xp[message.author.id].xp =  curxp + xpAdd;
 	if(nxtLvl <= xp[message.author.id].xp){
 	xp[message.author.id].level = curlvl + 1;
-	let lvlup = new Discord.Richmbed()
+	let lvlup = new Discord.RichEmbed()
 	.setTitle("Level Up!")
 	.setColor('RANDOM')
 	.addField("New Level", curlvl + 1)
@@ -165,7 +171,7 @@
 	channel.send(Embed);
 	});
 	bot.on('guildCreate', guild => {
-   guild.send(`Thank you for adding me to ${guild.name}. Type t!help to see a list of my available commands!`) 
+  
 	let joinLogs = bot.channels.get("427175412976713729");
   const embed = new Discord.RichEmbed()
   .setColor(0x00AE86)
@@ -175,7 +181,7 @@
   .addField("Users", guild.memberCount, true)
   .addField("Channels", guild.channels.size, true)
   .addField("Roles", guild.roles.size, true)
-  joinLogs.send({embed: embed});
+  joinLogs.send(embed);
 	});
 
 
