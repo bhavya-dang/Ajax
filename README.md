@@ -1,6 +1,4 @@
-
-
-Tritax AI
+## Tritax AI
 
 [![Build Status](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)](https://travis-ci.org/travis-ci/travis-web) ![Version](https://img.shields.io/badge/version-v1.1.0-brightgreen.svg) <a href="https://discord.gg/HjJCwm5">
         <img src="https://img.shields.io/discord/421853697027473408.svg?logo=discord"
@@ -9,8 +7,8 @@ Tritax AI
             
 **Tritax AI** is an **easy-to-use** fun Discord Bot with **HD quality music system** and very useful moderation commands.<br>
 
->Want to provide feedback or request a feature? Use the `t!suggest` command or [click here](https://discord.gg/hmVjJ) to ask in my Discord.
----
+*Want to provide feedback or request a feature?* Use the `t!suggest` command or [click here](https://discord.gg/hmVjJ) to ask in my Discord.
+
 
 ## Features
 - Economy
