@@ -14,7 +14,16 @@ module.exports.run = async (bot, message, args) => {
   
 
   await(tomute.removeRole(muterole.id));
-  message.reply(`<@${tomute.id}> has been unmuted.`);
+  let reason = args.join(" ").slice(22)
+    let Embed = new Discord.RichEmbed()
+  .setTitle("Un-Mute")
+  .setColor("#fc6400")
+  .addField("User", tomute)
+  .addField("Moderator", `${message.author}`)
+  .addField("Reason", reason ? reason : "None");
+let channel= message.guild.channels.find(`name`, 'mod-log')
+if(!channel) return message.channel.send("Please create a mod-log channel!")
+  channel.send(Embed)
 
   
 

@@ -8,19 +8,18 @@ module.exports.run = async (bot, message, args) => {
   let kReason = args.join(" ").slice(22);
   if(kUser.hasPermission("KICK_MEMBERS")) return message.channel.send("That person can't be kicked!");
 
-  let kickEmbed = new Discord.MessageEmbed()
+  let kickEmbed = new Discord.RichEmbed()
   .setDescription("Kick")
   .setColor("#f45642")
-  .addField("Kicked User", `${kUser}`)
-  .addField("Kicked By", `${message.author}`)
-  .addField("Kicked In", message.channel)
-  .addField("Tiime", message.createdAt)
+  .addField("User", `${kUser}`)
+  .addField("Moderator", `${message.author}`)
+  .addField("Time", message.createdAt.toLocaleString())
   .addField("Reason", kReason);
 
   let kickChannel = message.guild.channels.find("name", "mod-log");
   if(!kickChannel) return message.channel.send("Can't find channel.");
 
-  message.guild.member(kUser).kick(kReason);
+kUser.kick(kReason);
   kickChannel.send(kickEmbed);
 }
 

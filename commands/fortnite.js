@@ -1,5 +1,5 @@
 const Fortnite = require('fortnite');
-const stats = new Fortnite("5a8f8639-d749-4caf-8214-78afda2b1692"); // This will be your API key from the description in replace of 'process.env.TRN'
+const stats = new Fortnite(process.env.FT_token); // This will be your API key from the description in replace of 'process.env.TRN'
 const Discord = require('discord.js');
  
 module.exports.run = (bot, message, args) => {

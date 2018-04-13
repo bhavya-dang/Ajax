@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
   if(!muterole){
     try{
       muterole = await message.guild.createRole({
-        name: "muted",
+        name: "Muted",
         color: "#000000",
         permissions:[]
       })
@@ -28,20 +28,21 @@ module.exports.run = async (bot, message, args) => {
     }
   }
   //end of create role
-  let mutetime = args[1];
-  if(!mutetime) return message.reply("You didn't specify a time!");
 
+let reason = args.join(" ").slice(22)
   await(tomute.addRole(muterole.id));
-  message.reply(`<@${tomute.id}> has been muted for ${ms(ms(mutetime))}`);
-
-  setTimeout(function(){
-    tomute.removeRole(muterole.id);
-    message.channel.send(`<@${tomute.id}> has been unmuted!`);
-  }, ms(mutetime));
-
-//end of module
-}
+  let Embed = new Discord.RichEmbed()
+  .setTitle("Mute")
+  .setColor("#fc6400")
+  .addField("User", tomute)
+  .addField("Moderator", `${message.author}`)
+  .addField("Reason", reason)
+  
+let channel= message.guild.channels.find(`name`, 'mod-log')
+if(!channel) return message.channel.send("Please create a mod-log channel!")
+  channel.send(Embed)
+  }
 
 module.exports.help = {
-  name: "tempmute"
+  name: "mute"
 }

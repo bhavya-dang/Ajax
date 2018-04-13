@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
 
 let embed = new Discord.RichEmbed()
     .setTitle("Moderation")
-    .setDescription("There are currently 9 commands in this category.")
+    .setDescription("There are currently 9 commands in this category. These commands need a mod-log channel.")
     .addField("`t!ban`", "Ban a member.")
     .addField("`t!clear`", "Clear messages")
     .addField("`t!kick`", "Kick a member.")

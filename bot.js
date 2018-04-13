@@ -19,7 +19,7 @@
 	const xp = require("./xp.json");
 	const db = require('quick.db');
 const DBL = require("dblapi.js");
-const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQyMTkyNTgwOTUzMjQzNjQ4MSIsImJvdCI6dHJ1ZSwiaWF0IjoxNTIzMTcwOTI3fQ.jxmuxYvy_RqN8yUNuoJo5zi0McXTZ5dzChBG6yeOt3c', bot);
+const dbl = new DBL(process.env.DBL_TOKEN, bot);
 
 
 
@@ -98,13 +98,7 @@ const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQyMTkyNTgwOT
 	fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
 	if (err) console.log(err)
 	});
-	let coinEmbed = new Discord.RichEmbed()
-	.setAuthor(message.author.username)
-	.setThumbnail(message.author.displayAvatarURL())
-	.setColor("#42f45c")
-	.addField("💸", `${coinAmt} coins added!`);
 
-	message.channel.send(coinEmbed).then(msg => {msg.delete(5000)});
 	}
 
 	let xpAdd = Math.floor(Math.random() * 15) + 14;
@@ -124,12 +118,7 @@ const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQyMTkyNTgwOT
 	xp[message.author.id].xp =  curxp + xpAdd;
 	if(nxtLvl <= xp[message.author.id].xp){
 	xp[message.author.id].level = curlvl + 1;
-	let lvlup = new Discord.RichEmbed()
-	.setTitle("Level Up!")
-	.setColor('RANDOM')
-	.addField("New Level", curlvl + 1)
-	.setThumbnail(message.author.displayAvatarURL);
-	message.channel.send(lvlup).then(msg => {msg.delete(5000)});
+
 	}
 	fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
 	if(err) console.log(err)
@@ -162,8 +151,8 @@ const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQyMTkyNTgwOT
     
 	});
 	bot.on('guildMemberRemove', member => {
-	const channel = member.guild.channels.find('name', 'bot-spam');
-	if (!channel) return;
+	const channel = member.guild.channels.find(`name`, 'bot-spam');
+	
 	let Embed = new Discord.RichEmbed()
 	.setColor(0xD4AF37)
 	.setdescription(`${member.username}, has left the server!`)
@@ -177,10 +166,10 @@ const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQyMTkyNTgwOT
   .setColor(0x00AE86)
   .setAuthor(`Joined ${guild.name}`)
   .setThumbnail(guild.iconURL)
+  .addField("Owner", guild.owner)
   .addField("ID", guild.id, true)
   .addField("Users", guild.memberCount, true)
   .addField("Channels", guild.channels.size, true)
-  .addField("Roles", guild.roles.size, true)
   joinLogs.send(embed);
 	});
 

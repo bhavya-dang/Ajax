@@ -17,7 +17,7 @@ module.exports.run = (bot, message, args) => {
             const decode = require('he').decode;
             var anime = result.anime.entry[0];
             message.channel.send({embed:new Discord.RichEmbed()
-                                  .setAuthor(`MyAnimeList`,`https://lh3.googleusercontent.com/gdbHihUd8AA6tpBmnkQ8_hAhyxcEWMhy89Ptl-64adBktV-wj3343StB0Z9LNB0Q7bM=w300`)
+                                  .setAuthor(`MyAnimeList`,`https://lh3.googleusercontent.com/process.env.MAL_TOKEN`)
               .setTitle(anime.title[0] + ` - Anime Search Result`)
               .setURL(`https://myanimelist.net/anime/${anime.id[0]}`)
               .setImage(anime.image[0])
