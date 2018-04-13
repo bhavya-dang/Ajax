@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
   await(rMember.addRole(gRole.id));
 
   try{
-    await rMember.send(`Congrats, you have been given the role ${gRole.name}`)
+    await rMember.send(`Congrats, you have been given the role ${gRole.name} in ${message.guild.name}!`)
     message.channel.send(`${rMember} has been given the ${gRole.name} role.`)
   }catch(e){
     console.log(e.stack);

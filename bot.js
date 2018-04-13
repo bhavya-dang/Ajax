@@ -63,6 +63,16 @@ const dbl = new DBL(process.env.DBL_TOKEN, bot);
 	if(message.author.bot) return undefined;
 	if(message.channel.type === 'dm') return ;
 	db.add(`messagesSent_${message.author.id}`, 1);
+  if(message.content.toLowerCase() === '<@421925809532436481>'){
+  let embed = new Discord.RichEmbed()
+  .setTitle("Tritax AI")
+  .addField("Prefix", "`t!`", true)
+  .addField("Help", "`t!help`", true)
+  .setThumbnail(bot.user.displayAvatarURL)
+  .setColor(`${message.guild.me.displayHexColor!=='#000000' ? message.guild.me.displayHexColor : 0xffffff}`);
+  message.channel.send(embed);
+  }
+    
 	let prefix = botconfig.prefix;
 
 	let args = message.content.slice(prefix.length).trim().split(" ");
@@ -128,9 +138,7 @@ const dbl = new DBL(process.env.DBL_TOKEN, bot);
 	});
 	bot.on('guildMemberAdd', member => {
 	const members = member.guild.memberCount;
-	const channel = member.guild.channels.find('name', 'bot-spam');
-  const Channel = member.guild.channels.find('name', 'rules-info');
-  const cHannel = member.guild.channels.find('name', 'bot-invite');
+	const channel = member.guild.channels.find('name', 'member-log');
 	if (!channel) return;
 	
  let Role = member.guild.roles.find(`name`, "Bots");
@@ -142,26 +150,29 @@ const dbl = new DBL(process.env.DBL_TOKEN, bot);
     }
  
 	let Embed = new Discord.RichEmbed()
-	.setTitle(`${member.displayName}, Welcome to ${member.guild.name}`)
+	.setTitle("User Joined")
 	.setColor(0xD4AF37)
-	.setDescription(`${member.displayName}, I am sure you have lot of questions. Before moving further, please read the rules in ${Channel}\nTo invite your bot please read the channel topic of ${cHannel}`)
+  .setThumbnail(member.displayAvatarURL)
+	.setDescription(`${member.displayName}, joined ${member.guild.name}`)
 	.addField('Members', `${members}`, true)
   .addField("Bot", `${member.user.bot ? "Yes" : "No"}`, true)
 	channel.send(Embed);
     
 	});
 	bot.on('guildMemberRemove', member => {
-	const channel = member.guild.channels.find(`name`, 'bot-spam');
-	
+	const channel = member.guild.channels.find(`name`, 'member-log');
+	if(!channel) return member.channel.send("Please create a member-log channel!")
 	let Embed = new Discord.RichEmbed()
+  .setTitle("User Left!")
 	.setColor(0xD4AF37)
-	.setdescription(`${member.username}, has left the server!`)
+  .setThumbnail(member.displayAvatarURL)
+	.setDescription(`${member.tag}, has left the server!`)
 
 	channel.send(Embed);
 	});
 	bot.on('guildCreate', guild => {
   
-	let joinLogs = bot.channels.get("427175412976713729");
+	let joinLogs = guild.channels.find(`name`, 'logs');
   const embed = new Discord.RichEmbed()
   .setColor(0x00AE86)
   .setAuthor(`Joined ${guild.name}`)
@@ -172,6 +183,7 @@ const dbl = new DBL(process.env.DBL_TOKEN, bot);
   .addField("Channels", guild.channels.size, true)
   joinLogs.send(embed);
 	});
+
 
 
 	bot.login(process.env.TOKEN);

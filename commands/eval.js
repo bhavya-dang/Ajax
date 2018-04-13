@@ -21,14 +21,14 @@ module.exports.run = async (bot, message, args) => {
   
   let embed = new Discord.RichEmbed()
       .setTitle(`Evaluated in ${Math.round(bot.ping)}ms`)
-      .addField(":inbox_tray: Input", `\`\`\`xl\n${code}\n\`\`\``)
-      .addField(":outbox_tray: Output", `\`\`\`xl\n${clean(evaled).replace(bot.token, "NO TOKEN FOR YOU!")}\n\`\`\``)
+      .addField(":inbox_tray: Input", `\`\`\`js\n${code}\n\`\`\``)
+      .addField(":outbox_tray: Output", `\`\`\`js\n${clean(evaled).replace(bot.token, "NO TOKEN FOR YOU!")}\n\`\`\``)
       .addField('Type', `\`\`\`xl\n${(typeof rawEvaled).substr(0, 1).toUpperCase() + (typeof rawEvaled).substr(1)}\n\`\`\``)
       .setColor('GREEN');
       message.channel.send({embed});
     } catch (err) {
       
-      message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+      message.channel.send(`\`ERROR\` \`\`\`js\n${clean(err)}\n\`\`\``);
     }
 }
 

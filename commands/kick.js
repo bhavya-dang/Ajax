@@ -18,6 +18,14 @@ module.exports.run = async (bot, message, args) => {
 
   let kickChannel = message.guild.channels.find("name", "mod-log");
   if(!kickChannel) return message.channel.send("Can't find channel.");
+   let embed = new Discord.RichEmbed()
+  .setDescription("Kick")
+  .setColor("#f45642")
+  .addField("User", `${kUser}`)
+  .addField("Moderator", `${message.author}`)
+  .addField("Time", message.createdAt.toLocaleString())
+  .addField("Reason", kReason);
+  kUser.send(embed)
 
 kUser.kick(kReason);
   kickChannel.send(kickEmbed);
