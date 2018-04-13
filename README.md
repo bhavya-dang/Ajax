@@ -1,9 +1,16 @@
-# Tritax AI
+
+
+Tritax AI
+========
 [![Build Status](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)](https://travis-ci.org/travis-ci/travis-web) ![Version](https://img.shields.io/badge/version-v1.1.0-brightgreen.svg) <a href="https://discord.gg/HjJCwm5">
         <img src="https://img.shields.io/discord/421853697027473408.svg?logo=discord"
             alt="chat on Discord"></a>
+---
             
-A multi-purpose bot created by Tritax#2924.<br>
+**Tritax AI** is an **easy-to-use** fun Discord Bot with **HD quality music system** and very useful moderation commands.<br>
+
+*Want to provide feedback or request a feature?* Use the `t!suggest` command or [click here](https://discord.gg/hmVjJ) to ask in my Discord.
+---
 
 ## Features
 - Economy
@@ -14,10 +21,15 @@ A multi-purpose bot created by Tritax#2924.<br>
 - Anime
 - Moderation
 - Fun
-- Meme
+- Memes
 - Fortnite
+- CS:GO
+
+## Credits
+@𝕽𝐞𝖝𝐨𝐢𝐋#4945 For general support and ideas and error help.
+@Cubz#2954 For general support and ideas.
+@Respire#9313 For new ideas and Anime and Music commands help.
+@c4m3r0n#6175 For general support and ideas.
 
 ## Support
-
-[Click here](https://discordbots.org/bot/421925809532436481/) to get my bot's invite.<br>
-[Click here](https://discordbots.org/servers/421853697027473408/edit) for my server's profile.<br>
+If any problem or error, feel free to ask in my Discord server or **open up an issue**.
