@@ -9,6 +9,10 @@
 
 ***Want to provide feedback or request a feature?*** Come ask in my [Discord](https://discord.gg/hmVjJ).
 
+## Hosting
+
+Tritax AI comes ready to use for hosting on heroku.
+
 
 ## Features
 - Economy
@@ -22,6 +26,21 @@
 - Memes
 - Fortnite
 - CS:GO
+
+## Setup
+
+Api Keys- For the anime, music, and imgur commands to work you have to get an api key.<br>
+
+Instructions:
+1. Clone the repository in a folder by doing `git clone <repo link>` in the command line. You can get the repo link from here<br>
+[!Image](https://image.prntscr.com/image/bm7f2rC-R76nbl_dN207Gg.png)<br>
+* You can also use Github Desktop to clone it or download the `.zip` folder.<br>
+2. Change the prefix in the botconfig.json file to *whatever* you want.<br>
+3. Do `npm install` to install all the modules in the `package.json` file.<br>
+4. For hosting on heroku, just connect heroku with your github account.<br>
+- Go to `Overview` and click on `Configure Dynos`. Change it to worker.<br>
+- Go to `Settings` and then add the api keys and bot token in the `Config Vars`.
+
 
 ## Credits
 @𝕽𝐞𝖝𝐨𝐢𝐋#4945 For general support and ideas and error help.<br>
