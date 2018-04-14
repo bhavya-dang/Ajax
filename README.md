@@ -33,7 +33,8 @@ Api Keys- For the anime, music, and imgur commands to work you have to get an ap
 
 Instructions:
 1. Clone the repository in a folder by doing `git clone <repo link>` in the command line. You can get the repo link from here<br>
-[!Image](https://image.prntscr.com/image/bm7f2rC-R76nbl_dN207Gg.png)<br>
+![bm7f2rc-r76nbl_dn207gg](https://user-images.githubusercontent.com/37131433/38769009-8773ef2c-4019-11e8-9a4e-0e059795c50f.png)
+<br>
 * You can also use Github Desktop to clone it or download the `.zip` folder.<br>
 2. Change the prefix in the botconfig.json file to *whatever* you want.<br>
 3. Do `npm install` to install all the modules in the `package.json` file.<br>
