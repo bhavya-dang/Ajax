@@ -37,6 +37,7 @@ module.exports.run = async (bot, message, args) => {
   try {
     const collected = await message.channel.awaitMessages(answer => item.a.includes(answer.content.toLowerCase()), options);
     const winnerMessage = collected.first();
+    if(args[0] !== winnerMessage.content) return message.channel.send("**Wrong answer!**");
     return message.channel.send({embed: new Discord.RichEmbed()
                                  .setAuthor(`Winner: ${winnerMessage.author.tag}`, winnerMessage.author.displayAvatarURL)
                                  .setTitle(`Correct Answer: \`${winnerMessage.content}\``)
