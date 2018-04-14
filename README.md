@@ -5,7 +5,7 @@
             alt="chat on Discord"></a>
 ---
             
-**Tritax AI** is an **easy-to-use** fun Discord Bot with **HD quality music system** and very useful moderation commands.<br>
+>**Tritax AI** is an **easy-to-use** fun Discord Bot with **HD quality music system** and very useful moderation commands.<br>
 
 ***Want to provide feedback or request a feature?*** Come ask in my [Discord](https://discord.gg/hmVjJ).
 
@@ -28,9 +28,11 @@
 @Cubz#2954 For general support and ideas.<br>
 @Respire#9313 For new ideas and Anime and Music commands help.<br>
 @c4m3r0n#6175 For general support and ideas.<br>
+@Whirl#9077 For general support and ideas.<br>
 
 
 ## Support
 If any problem or error, feel free to ask in my Discord server or **open up an issue**.<br>
 Website: [Tritax AI](https://tritaxxcoder.github.io/TritaxAI)<br>
+Invite link is available on the website.
 &copy; A Coder's Hangout 2018
