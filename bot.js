@@ -149,7 +149,7 @@ const dbl = new DBL(process.env.DBL_TOKEN, bot);
 	});
 	bot.on('guildMemberRemove', member => {
 	const channel = member.guild.channels.find(`name`, 'member-log');
-	if(!channel) return member.channel.send("Please create a member-log channel!")
+	if(!channel) return channel.send("Please create a member-log channel!")
 	let Embed = new Discord.RichEmbed()
   .setTitle("User Left!")
 	.setColor(0xD4AF37)
