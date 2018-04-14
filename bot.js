@@ -44,7 +44,8 @@ const dbl = new DBL(process.env.DBL_TOKEN, bot);
 	let embed = new Discord.RichEmbed()
 	.setTitle("Invalid Command!")
 	.setDescription("Do `t!help` for a list of my available commands!")
-	if(!props) 	
+	.setColor(message.guild.me.displayHexColor);
+	if(!props) return message.channel.send(embed)
 	console.log(`${f} loaded!`);
 	bot.commands.set(props.help.name, props);
 	});
@@ -158,7 +159,8 @@ const dbl = new DBL(process.env.DBL_TOKEN, bot);
   .setTitle("User Left!")
 	.setColor(0xD4AF37)
   .setThumbnail(member.displayAvatarURL)
-	.setDescription(`${member.tag}, has left the server!`)
+	.setDescription(`${member.displayName}, has left the server!`)
+	.setThumbnail(member.displayAvatarURL)
 
 	channel.send(Embed);
 	});
