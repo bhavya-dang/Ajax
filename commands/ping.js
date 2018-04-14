@@ -2,10 +2,10 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
         let pEmbed = new Discord.RichEmbed()
-        .setColor('#92f785')
-        .setTitle(':ping_pong: Pong!')
-        .addField('Latency', (new Date().getTime() - message.createdTimestamp) + ' ms', true)
-        .addField('Websocket' , `${Math.round(bot.ping)}ms`, false);
+        .setColor(message.guild.me.displayHexColor)
+        .setTitle('Pong!')
+        .addField('<:wifi:434729220669964319> Latency', (new Date().getTime() - message.createdTimestamp) + ' ms', true)
+        .addField('<:server:434729191192395778> Websocket' , `${Math.round(bot.ping)} ms`, false);
          message.channel.send(pEmbed);
 }
 
