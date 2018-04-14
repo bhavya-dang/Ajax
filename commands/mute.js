@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const ms = require("ms");
 
 module.exports.run = async (bot, message, args) => {
-
+message.delete();
   //!tempmute @user 1s/m/h/d
   if(!message.member.hasPermission("KICK_MEMBERS")) return message.reply("You don't have the authority to do so.");
   let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
