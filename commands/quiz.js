@@ -50,4 +50,7 @@ module.exports.run = async (bot, message, args) => {
                                  .setFooter(`Question: ${item.q}`)
                                 })
   }
-};
+}
+module.exports.help = {
+name: "quiz"
+}
