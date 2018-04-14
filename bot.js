@@ -44,7 +44,7 @@ const dbl = new DBL(process.env.DBL_TOKEN, bot);
 	let embed = new Discord.RichEmbed()
 	.setTitle("Invalid Command!")
 	.setDescription("Do `t!help` for a list of my available commands!")
-	.setColor(message.guild.me.displayHexColor);
+	.setColor("#e0184d");
 	if(!props) return message.channel.send(embed)
 	console.log(`${f} loaded!`);
 	bot.commands.set(props.help.name, props);
