@@ -41,6 +41,10 @@ const dbl = new DBL(process.env.DBL_TOKEN, bot);
 	jsfile.forEach((f, i) =>{
 	
 	let props = require(`./commands/${f}`);
+	let embed = new Discord.RichEmbed()
+	.setTitle("Invalid Command!")
+	.setDescription("Do `t!help` for a list of my available commands!")
+	if(!props) 	
 	console.log(`${f} loaded!`);
 	bot.commands.set(props.help.name, props);
 	});
