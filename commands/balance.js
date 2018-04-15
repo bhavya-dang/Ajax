@@ -11,6 +11,6 @@ exports.run = async (bot, message, args) => {
     .addField('Account Balance', `${balance === null ? "0" : balance}`, true)
     message.channel.send(embed)
 }
-module.exports.run = {
+module.exports.help = {
     name: "balance"
 }
