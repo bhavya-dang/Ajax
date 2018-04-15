@@ -1,7 +1,7 @@
 const Discord = require('discord.js'),
       db = require('quick.db');
 
-exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args) => {
 
     if (!message.mentions.members.first()) return tools.embed(message.channel, '**Please mention a user!**');
 
