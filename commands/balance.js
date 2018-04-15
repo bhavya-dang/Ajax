@@ -1,18 +1,16 @@
-const Discord = require('discord.js')
-const db = require('quick.db')
+const Discord = require('discord.js'),
+      db = require('quick.db');
 
-module.exports.run = async (bot, message, args) => {
- 
-  let balance = await db.fetch(`userBalance_${message.author.id}`)
-  
-  	let embed = new Discord.RichEmbed()
-  	.setTitle(`${message.guild.name} Bank`)
-  	.addField('Account Holder', message.member.displayName, true)
-  	.addField('Account Balance', `${balance === null ? "0" : balance}`, true)
-  	.setColor('#a5ff1e')
+exports.run = async (client, message, args, tools) => {
+    let user = message.mentions.users.first() || message.author;
+    let balance = await db.fetch(`userBalance_${user.id}`);
+    const embed = new Discord.RichEmbed()
+    .setTitle(`${message.guild.name} Bank`)
+    .setColor('#4AFF5F')
+    .addField('Acoount Holder', user.username, true)
+    .addField('Account Balance', `${balance === null ? "0" : balance}`, true)
     message.channel.send(embed)
-  }
-
-module.exports.help = {
-  name: 'balance'
+}
+module.exports.run = {
+    name: "balance"
 }
