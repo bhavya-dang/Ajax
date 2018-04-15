@@ -38,6 +38,7 @@
     "weather-js": "^2.0.0",
     "node-gyp": "^3.6.2",
     "childprocess": "^2.0.2",
+    "google-translate-api": "^2.3.0",
     "snekfetch": "^3.6.4",
     "js-beautify": "^1.7.5",
     "cheerio": "^0.22.0",
