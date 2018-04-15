@@ -30,6 +30,7 @@ Tritax AI comes ready to use for hosting on heroku.
 ## Setup
 
 Api Keys- For the anime, music, and imgur commands to work you have to get an api key.<br>
+For logging, please create two channels- `member-log` and `mod-log` for the bot to log moderation history and member join/leave history. 
 
 Instructions:
 1. Clone the repository in a folder by doing `git clone <repo link>` in the command line. You can get the repo link from here<br>
