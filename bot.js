@@ -6,11 +6,8 @@
 	const coins = require("./coins.json");
 	const xp = require("./xp.json");
 	const db = require('quick.db');
-const DBL = require("dblapi.js");
-const dbl = new DBL(process.env.DBL_TOKEN, bot);
-
-
-
+        const DBL = require("dblapi.js");
+        const dbl = new DBL(process.env.DBL_TOKEN, bot);
 
 	bot.on('ready', () => {
 	console.log("Loading...");
@@ -21,15 +18,12 @@ const dbl = new DBL(process.env.DBL_TOKEN, bot);
 	console.log(`Logged in as ${bot.user.tag}`);
 	}, 2000);
 	bot.user.setActivity(`t!help | ${bot.guilds.size} guilds | ${bot.users.size} users`, {type: "PLAYING"});
-    setInterval(() => {
+        setInterval(() => {
         dbl.postStats(bot.guilds.size)
-    }, 1800000);
+        }, 1800000);
 	})
 
-
-
 	fs.readdir("./commands/", (err, files) => {
-
 	if(err) console.log(err);
 	let jsfile = files.filter(f => f.split(".").pop() === "js");
 	if(jsfile.length <= 0){
@@ -39,38 +33,29 @@ const dbl = new DBL(process.env.DBL_TOKEN, bot);
 
 
 	jsfile.forEach((f, i) =>{
-	
 	let props = require(`./commands/${f}`);
-	let embed = new Discord.RichEmbed()
-	.setTitle("Invalid Command!")
-	.setDescription("Do `t!help` for a list of my available commands!")
-	.setColor("#e0184d");
-	if(!props) return message.channel.send(embed)
 	console.log(`${f} loaded!`);
 	bot.commands.set(props.help.name, props);
 	});
 	});
 
-
 	bot.on("message", async message => {
 	if(message.author.bot) return undefined;
 	if(message.channel.type === 'dm') return ;
 	db.add(`messagesSent_${message.author.id}`, 1);
-  if(message.content.toLowerCase() === '<@421925809532436481>'){
-  let embed = new Discord.RichEmbed()
-  .setTitle("Tritax AI")
-  .addField("Prefix", "`t!`", true)
-  .addField("Help", "`t!help`", true)
-  .setThumbnail(bot.user.displayAvatarURL)
-  .setColor(`${message.guild.me.displayHexColor!=='#000000' ? message.guild.me.displayHexColor : 0xffffff}`);
-  message.channel.send(embed);
-  }
+        if(message.content.toLowerCase() === '<@421925809532436481>'){
+       let embed = new Discord.RichEmbed()
+       .setTitle("Tritax AI")
+       .addField("Prefix", "`t!`", true)
+       .addField("Help", "`t!help`", true)
+       .setThumbnail(bot.user.displayAvatarURL)
+       .setColor(`${message.guild.me.displayHexColor!=='#000000' ? message.guild.me.displayHexColor : 0xffffff}`);
+        message.channel.send(embed);
+        }
     
 	let prefix = botconfig.prefix;
-
 	let args = message.content.slice(prefix.length).trim().split(" ");
 	let cmd = args.shift().toLowerCase();
-
 	if(message.author.bot) return undefined;;
 	if(!message.content.startsWith(prefix)) return undefined;
 
@@ -80,9 +65,6 @@ const dbl = new DBL(process.env.DBL_TOKEN, bot);
 	commandFile.run(bot, message, args);
 	if(!commandFile) return message.channel.send("No command found with that name.");
 	} catch (e) { console.log(e) }
-
-
-
 
 	if(!coins[message.author.id]){
 	coins[message.author.id] = {
@@ -134,50 +116,43 @@ const dbl = new DBL(process.env.DBL_TOKEN, bot);
 	const channel = member.guild.channels.find('name', 'member-log');
 	if (!channel) return;
 	
- let Role = member.guild.roles.find(`name`, "Bots");
-    if(member.user.bot){
+       let Role = member.guild.roles.find(`name`, "Bots");
+       if(member.user.bot){
 	member.addRole(Role.id)
-    }else{
+       }else{
       let role = member.guild.roles.find(`name`, "User");
 	member.addRole(role.id)
-    }
+       }
  
 	let Embed = new Discord.RichEmbed()
-	.setTitle("User Joined")
-	.setColor(0xD4AF37)
-  .setThumbnail(member.displayAvatarURL)
-	.setDescription(`${member.displayName}, joined ${member.guild.name}`)
-	.addField('Members', `${members}`, true)
-  .addField("Bot", `${member.user.bot ? "Yes" : "No"}`, true)
+	.setFooter("User Joined")
+	.setColor("#cde246")    
+	.setAuthor(`${member.displayName} has joined ${member.guild.name}`, member.displayAvatarURL)
+	.setTimestamp()
 	channel.send(Embed);
-    
 	});
 	bot.on('guildMemberRemove', member => {
 	const channel = member.guild.channels.find(`name`, 'member-log');
 	if(!channel) return; 
 	let Embed = new Discord.RichEmbed()
-  .setTitle("User Left!")
-	.setColor(0xD4AF37)
-  .setThumbnail(member.displayAvatarURL)
-	.setDescription(`${member.displayName}, has left the server!`)
-	.setThumbnail(member.displayAvatarURL)
-
+	.setColor("#e26346")
+	.setAuthor(`${member.user.username}, has left ${member.guild.name}.`, member.displayAvatarURL)
+	.setTimestamp()
+	.setFooter("User Left")
 	channel.send(Embed);
 	});
+
 	bot.on('guildCreate', guild => {
-  
+        if(guild.id !== '421853697027473408') return;
 	let joinLogs = guild.channels.find(`name`, 'logs');
-  const embed = new Discord.RichEmbed()
-  .setColor(0x00AE86)
-  .setAuthor(`Joined ${guild.name}`)
-  .setThumbnail(guild.iconURL)
-  .addField("Owner", guild.owner)
-  .addField("ID", guild.id, true)
-  .addField("Users", guild.memberCount, true)
-  .addField("Channels", guild.channels.size, true)
-  joinLogs.send(embed);
+        const embed = new Discord.RichEmbed()
+        .setColor("#cde246")
+        .setAuthor(`Joined ${guild.name}`)
+        .setThumbnail(guild.iconURL)
+        .addField("Owner", guild.owner)
+        .addField("ID", guild.id, true)
+        .addField("Users", guild.memberCount, true)
+        .addField("Channels", guild.channels.size, true)
+         joinLogs.send(embed);
 	});
-
-
-
 	bot.login(process.env.TOKEN);
