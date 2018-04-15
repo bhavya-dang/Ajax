@@ -2,7 +2,7 @@ const Discord = require('discord.js'),
       db = require('quick.db'),
       ms = require('parse-ms');
 
-exports.run = async (client, message, args, tools) => {
+exports.run = async (bot, message, args) => {
     let cooldown = 8.64e+7, // 24 Часа
         amount = Math.floor(Math.random() * 1000) + 4000;      
 
