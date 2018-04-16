@@ -9,10 +9,10 @@ module.exports.run = async (bot, message, args) => {
     .setTitle("Member Stats")
     .setColor("#f4c441")
     .addField("Members", members)
-    .addField("DND", dnd)
-    .addField("Idle", idle)
-    .addField("Offline", offline)
-    .addField("Online", online);
+    .addField("DND", `<:dnd:435059612039905311> ${dnd}`)
+    .addField("Idle", `<:idle:435059611779989525> ${idle}`)
+    .addField("Offline", `<:offline:435059612048162816> ${offline}`)
+    .addField("Online", `<:online:435059612052357120> ${online}`);
     message.channel.send(embed);
 
 }
