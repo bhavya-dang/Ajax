@@ -1,12 +1,12 @@
 const { exec } = require("child_process");
 
 module.exports.run = async (bot, message, args) => {
-const outputErr = (msg, stdData) => {
+const outputErr = (message, stdData) => {
   let { stdout, stderr } = stdData;
-  stderr = stderr ? ["`STDERR`","```sh",client.clean(stderr.substring(0, 800)) || " ","```"] : [];
-  stdout = stdout ? ["`STDOUT`","```sh",client.clean(stdout.substring(0, stderr ? stderr.length : 2046 - 40)) || " ","```"] : [];
+  stderr = stderr ? ["`STDERR`","```sh",bot.clean(stderr.substring(0, 800)) || " ","```"] : [];
+  stdout = stdout ? ["`STDOUT`","```sh",bot.clean(stdout.substring(0, stderr ? stderr.length : 2046 - 40)) || " ","```"] : [];
   let message = stdout.concat(stderr).join("\n").substring(0, 2000);
-  msg.edit(message);
+  message.edit(message);
 };
 const doExec = (cmd, opts = {}) => {
   return new Promise((resolve, reject) => {
@@ -22,7 +22,7 @@ const doExec = (cmd, opts = {}) => {
   stdOut = stdOut.substring(0, 1750);
   outMessage.edit(`\`OUTPUT\`
 \`\`\`sh
-${client.clean(stdOut)}
+${bot.clean(stdOut)}
 \`\`\``);
 }
 module.exports.help = {
