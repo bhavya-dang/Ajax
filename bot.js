@@ -136,7 +136,7 @@
 	if(!channel) return; 
 	let Embed = new Discord.RichEmbed()
 	.setColor("#e26346")
-	.setAuthor(`${member.user.username}, has left ${member.guild.name}.`, member.user.displayAvatarURL)
+	.setAuthor(`${member.displayName}, has left ${member.guild.name}.`, member.user.displayAvatarURL)
 	.setTimestamp()
 	.setFooter("User Left")
 	channel.send(Embed);
