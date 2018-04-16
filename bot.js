@@ -52,7 +52,7 @@
        .setColor(`${message.guild.me.displayHexColor!=='#000000' ? message.guild.me.displayHexColor : 0xffffff}`);
         message.channel.send(embed);
         }
-	if(message.content.startsWith('<@414111663076147201>'){
+	if(message.content.startsWith('<@414111663076147201>')){
 	message.delete();
         let embed = new Discord.RichEmbed()
         .setTitle(":speak_no_evil: Sshhh....")
