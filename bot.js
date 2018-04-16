@@ -127,7 +127,7 @@
 	let Embed = new Discord.RichEmbed()
 	.setFooter("User Joined")
 	.setColor("#cde246")    
-	.setAuthor(`${member.displayName} has joined ${member.guild.name}`, member.displayAvatarURL)
+	.setAuthor(`${member.displayName} has joined ${member.guild.name}`, member.avatarURL)
 	.setTimestamp()
 	channel.send(Embed);
 	});
@@ -136,7 +136,7 @@
 	if(!channel) return; 
 	let Embed = new Discord.RichEmbed()
 	.setColor("#e26346")
-	.setAuthor(`${member.user.username}, has left ${member.guild.name}.`, member.displayAvatarURL)
+	.setAuthor(`${member.user.username}, has left ${member.guild.name}.`, member.avatarURL)
 	.setTimestamp()
 	.setFooter("User Left")
 	channel.send(Embed);
