@@ -56,7 +56,7 @@
 	message.delete();
         let embed = new Discord.RichEmbed()
         .setTitle(":speak_no_evil: Sshhh....")
-	.setDescription(`Don\'t ping him! He can demote you!! ${message.author.username}`)
+	.setDescription(`Don\'t ping him! He can demote you!! **${message.member.tag}**`)
 	.setColor(botconfig.white);
 	message.channel.send(embed)
 	}
