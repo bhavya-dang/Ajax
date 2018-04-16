@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("**ID**", message.author.id, true)
   .addField("**Bot**", `${message.author.bot ? "Yes" : "No"}`, true)
   .addField("**Role**", `${role}`, true)
-  .addField("**Status**",`${status[message.member.presence.status]}`, true)
+  .addField("**Status**",`${status[message.member.presence.status]}`)
   .addField("**Roles**", `${message.member.roles.filter(r => r.id !== message.guild.id).map(roles => `\`${roles.name}\``).join(" **|** ") || "No Roles"}`, true)
   .addField("**Playing**", `${message.member.presence.game ? `${message.member.presence.game.name}` : "Not playing anything."}`)
   .addField("**Acc. Created At**", `${moment.utc(message.author.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss")} (${ms(Date.now()- message.author.createdAt, {long: true})})`)
