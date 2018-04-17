@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
   
   db.set(`prefix_${message.guild.id}`, args.join(' ')).then(i => {
     
-  const embed = new Discord.MessageEmbed()
+  const embed = new Discord.RichEmbed()
     .setAuthor(message.author.tag, message.author.displayAvatarURL)
     .setTitle(`Server Prefix has been changed to ${i}`)
     .setThumbnail(bot.user.displayAvatarURL)
