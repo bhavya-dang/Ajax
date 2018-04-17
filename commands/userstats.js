@@ -5,9 +5,9 @@ const ms = require('ms');
 module.exports.run = async (bot, message, args) => {
   const status = {
   online: "<:online:435059612052357120> Online",
-  idle: "<:dnd:435059612039905311> Idle",
-  dnd: "<:offline:435059612048162816> Do Not Disturb",
-  offline: "<:idle:435059611779989525> Offline/Invisible",
+  idle: "<:idle:435059611779989525> Idle",
+  dnd: "<:dnd:435059612039905311> Do Not Disturb",
+  offline: "<:offline:435059612048162816> Offline/Invisible",
   stream: "<:streaming:435059611939373057> Streaming" 
 };
   
