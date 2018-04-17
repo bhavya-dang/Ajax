@@ -61,7 +61,13 @@
 	message.channel.send(embed)
 	}
     
+	let prefix = db.fetch(`prefix_${message.guild.id}`).then(i => {
+	if(!i){
 	let prefix = botconfig.prefix;
+	}else{
+	prefix = i;
+	}
+	})
 	let args = message.content.slice(prefix.length).trim().split(" ");
 	let cmd = args.shift().toLowerCase();
 	if(message.author.bot) return undefined;;
