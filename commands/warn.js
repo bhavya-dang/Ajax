@@ -34,24 +34,24 @@ module.exports.run = async (bot, message, args) => {
   let warnchannel = message.guild.channels.find(`name`, "mod-log");
   if(!warnchannel) return message.reply("Couldn't find channel");
 
-  warnchannel.send(warnEmbed);
+  warnchannel.send(warnEmbed).then(msg => msg.channel.send(":tickYes | That user has been warnt."))
 
-  if(warns[wUser.id].warns == 3){
-    let muterole = message.guild.roles.find(`name`, "muted");
-    if(!muterole) return message.reply("You should create that role dude.");
+  if(warns[wUser.id].warns == 5){
+    let muterole = message.guild.roles.find(`name`, "Muted");
+    if(!muterole) return message.reply("Please create a role names `Muted`.");
 
     let mutetime = "30m";
     await(wUser.addRole(muterole.id));
-    message.channel.send(`<@${wUser.id}> has been temporarily muted`);
+    message.channel.send(`:tickYes: | ${wUser} has been muted for 30m due to 5 warnings.`);
 
     setTimeout(function(){
       wUser.removeRole(muterole.id)
-      message.reply(`<@${wUser.id}> has been unmuted.`)
+      message.reply(`${wUser} has been unmuted.`)
     }, ms(mutetime))
   }
   if(warns[wUser.id].warns == 7){
     wUser.ban(reason);
-    message.reply(`<@${wUser.id}> has been banned.`)
+    message.reply(`${wUser} has been banned due to 7 warnings..`)
   }
 
 }
