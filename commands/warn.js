@@ -7,10 +7,10 @@ module.exports.run = async (bot, message, args) => {
   message.delete();
 
   //!warn @daeshan <reason>
-  if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("No can do pal!");
+  if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("You don't have `MANAGE_MEMBERS` permissions.");
   let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
-  if(!wUser) return message.reply("Couldn't find them yo");
-  if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("They waaaay too kewl");
+  if(!wUser) return message.reply("Couldn't find the user.");
+  if(wUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("They can't be warnt!");
   let reason = args.join(" ").slice(22);
 
   if(!warns[wUser.id]) warns[wUser.id] = {
@@ -32,13 +32,13 @@ module.exports.run = async (bot, message, args) => {
   .addField("Reason", reason);
 
   let warnchannel = message.guild.channels.find(`name`, "mod-log");
-  if(!warnchannel) return message.reply("Couldn't find channel");
+  if(!warnchannel) return message.channel.send("Couldn't find channel");
 
   warnchannel.send(warnEmbed).then(msg => msg.channel.send(":tickYes | That user has been warnt."))
 
   if(warns[wUser.id].warns == 5){
     let muterole = message.guild.roles.find(`name`, "Muted");
-    if(!muterole) return message.reply("Please create a role names `Muted`.");
+    if(!muterole) return message.channel.send("Please create a role names `Muted`.");
 
     let mutetime = "30m";
     await(wUser.addRole(muterole.id));
@@ -46,12 +46,12 @@ module.exports.run = async (bot, message, args) => {
 
     setTimeout(function(){
       wUser.removeRole(muterole.id)
-      message.reply(`${wUser} has been unmuted.`)
+      message.channel.send(`${wUser} has been unmuted.`)
     }, ms(mutetime))
   }
   if(warns[wUser.id].warns == 7){
     wUser.ban(reason);
-    message.reply(`${wUser} has been banned due to 7 warnings..`)
+    message.channel.send(`${wUser} has been banned due to 7 warnings..`)
   }
 
 }
