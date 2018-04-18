@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
   
   let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!kUser) return message.channel.send("Can't find user!");
-  if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("**You don't have the permissions to do so!**")
+  if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("You don't have `KICK_MEMBERS` permissions.")
   let kReason = args.join(" ").slice(22);
   if(kUser.hasPermission("KICK_MEMBERS")) return message.channel.send("That person can't be kicked!");
 
@@ -16,8 +16,8 @@ module.exports.run = async (bot, message, args) => {
   .addField("Time", message.createdAt.toLocaleString())
   .addField("Reason", kReason);
 
-  let kickChannel = message.guild.channels.find("name", "mod-log");
-  if(!kickChannel) return message.channel.send("Can't find channel.");
+  let kickChannel = message.guild.channels.find(`name`, 'mod-log');
+  if(!kickChannel) return message.channel.send("Can't find `mod-log` channel.");
    let embed = new Discord.RichEmbed()
   .setDescription("Kick")
   .setColor("#f45642")
@@ -28,7 +28,8 @@ module.exports.run = async (bot, message, args) => {
   kUser.send(embed)
 
 kUser.kick(kReason);
-  kickChannel.send(kickEmbed);
+kUser.send(embed);
+kickChannel.send(kickEmbed);
 }
 
 module.exports.help = {
