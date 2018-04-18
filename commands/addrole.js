@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
 
   try{
     await rMember.send(`Congrats, you have been given the role `\`${gRole.name}\` in `\`${message.guild.name}`\``)
-    message.channel.send(``\`Success!\` ${rMember} has been given the ${gRole.name} role.`)
+    message.channel.send(`:tickYes: | ${rMember} has been given the ${gRole.name} role.`)
   }catch(e){
     console.log(e.stack);
     message.channel.send(`Congrats to <@${rMember.id}>, they have been given the role ${gRole.name}. We tried to DM them, but their DMs are locked.`)
