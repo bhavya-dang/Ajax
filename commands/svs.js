@@ -1,4 +1,3 @@
-const superagent = require('superagent');
 const Discord = require('discord.js');
 
 
