@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Moderator", `${message.author.tag}`)
     .addField("Reason", bReason)
     bUser.send(embed);
-  bUser.ban(bReason).then(msg => msg.channel.send(":tickYes: | That member has been banned."))
+  bUser.ban(bReason).then(msg => msg.channel.send(":tickYes: | That member has been banned."));
   incidentchannel.send(banEmbed);
 }
 
