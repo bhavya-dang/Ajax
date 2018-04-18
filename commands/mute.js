@@ -3,11 +3,11 @@ const ms = require("ms");
 
 module.exports.run = async (bot, message, args) => {
 message.delete();
-  //!tempmute @user 1s/m/h/d
-  if(!message.member.hasPermission("KICK_MEMBERS")) return message.reply("You don't have the authority to do so.");
+  
+  if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("<:tickNo:432418492667396097> | You don't have `MANAGE_MEMBERS` permissions.");
   let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!tomute) return message.reply("Couldn't find user.");
-  if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("Can't mute them!");
+  if(tomute.hasPermission("MANAGE_MESSAGES")) return message.channel.send("<:tickNo:432418492667396097> | Can't mute them!");
   let muterole = message.guild.roles.find(`name`, "Muted");
   //start of create role
   if(!muterole){
@@ -27,7 +27,7 @@ message.delete();
       console.log(e.stack);
     }
   }
-  //end of create role
+  
 
 let reason = args.join(" ").slice(22)
   await(tomute.addRole(muterole.id));
@@ -37,7 +37,7 @@ let reason = args.join(" ").slice(22)
   .addField("User", tomute)
   .addField("Moderator", `${message.author}`)
   .addField("Reason", reason)
-  
+ message.channel.send("<:tickYes:432418492889694210> | That user has been muted.")
 let channel= message.guild.channels.find(`name`, 'mod-log')
 if(!channel) return message.channel.send("Please create a mod-log channel!")
   channel.send(Embed)
