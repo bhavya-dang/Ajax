@@ -42,7 +42,6 @@
 	bot.on("message", async message => {
 	if(message.author.bot) return undefined;
 	if(message.channel.type === 'dm') return ;
-	db.add(`messagesSent_${message.author.id}`, 1);
         if(message.content.toLowerCase() === '<@421925809532436481>'){
         let embed = new Discord.RichEmbed()
        .setTitle("Tritax AI")
@@ -52,11 +51,11 @@
        .setColor(`${message.guild.me.displayHexColor!=='#000000' ? message.guild.me.displayHexColor : 0xffffff}`);
         message.channel.send(embed);
         }
-	if(message.content.startsWith('<@414111663076147201>')){
-	message.delete();
+	    if(message.content.startsWith('<@414111663076147201>')){
+	    message.delete();
         let embed = new Discord.RichEmbed()
         .setTitle(":speak_no_evil: Sshhh....")
-	.setDescription(`Don\'t ping him! He can demote you!! **${message.author.tag}**`)
+	     .setDescription(`Don\'t ping him! He can demote you!! **${message.author.tag}**`)
 	.setColor(botconfig.white);
 	message.channel.send(embed)
 	}
