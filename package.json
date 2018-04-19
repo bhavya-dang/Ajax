@@ -10,10 +10,7 @@
   "engines": {
     "node": "9.8.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/An-Idiots-Guide/guidebot.git"
-  },
+
   "author": "TritaxGamer",
   "license": "MIT",
   "bugs": {
