@@ -14,6 +14,7 @@ let embed = new Discord.RichEmbed()
     .addField("`t!purge`", "Clears a member's messages.")
     .addField("`t!warn`", "Warn a member.")
     .addField("`t!warnlvl`", "Check a user's warn level.")
+    .setFooter("Require mod-log channel.")
 
 message.channel.send(embed);
 }

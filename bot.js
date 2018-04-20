@@ -150,7 +150,6 @@
 	});
 
 	bot.on('guildCreate', guild => {
-        if(guild.id !== '421853697027473408') return;
 	      let joinLogs = bot.channels.get('428564028239904790')
         const embed = new Discord.RichEmbed()
         .setColor("#cde246")

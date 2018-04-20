@@ -11,7 +11,8 @@
 
 ## Hosting
 
-Tritax AI comes ready to use for hosting on heroku.
+Tritax AI is 24/7 hosted on glitch.<br>
+For self-hosting, it also comes with all the code that you need to set it up on glitch.
 
 
 ## Features
@@ -30,7 +31,7 @@ Tritax AI comes ready to use for hosting on heroku.
 ## Setup
 
 Api Keys- For the anime, music, and imgur commands to work you have to get an api key.<br>
-For logging, please create two channels- `member-log` and `mod-log` for the bot to log moderation history and member join/leave history. 
+For logging, please create three channels- `member-log`, `mod-log` and `logs` for the bot to log moderation history, member join/leave history and bot guild add history.
 
 Instructions:
 1. Clone the repository in a folder by doing `git clone <repo link>` in the command line. You can get the repo link from here<br>
