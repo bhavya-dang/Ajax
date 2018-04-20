@@ -5,13 +5,13 @@
             alt="chat on Discord"></a>
 ---
             
-**Tritax AI** is an **easy-to-use** fun Discord Bot with **HD quality music system** and very useful moderation commands.<br>
+>**Tritax AI** is an **easy-to-use** fun Discord Bot with **HD quality music system** and very useful moderation commands.<br>
 
 ***Want to provide feedback or request a feature?*** Come ask in my [Discord](https://discord.gg/hmVjJ).
 
 ## Hosting
-Tritax AI is hosted 24/7 and is online all the time.<br>
-If you want to self-host, it also comes with all the code that is needed to set it up on glitch.
+
+Tritax AI comes ready to use for hosting on heroku.
 
 
 ## Features

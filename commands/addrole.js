@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-  if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("<:tickNo:432418492667396097> **| You dont have `MANAGE_MEMBERS` permissions.**");
+  if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel("<:tickNo:432418492667396097> **| You dont have `MANAGE_ROLES` permissions.**");
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
   if(!rMember) return message.channel.send("<:tickNo:432418492667396097> **| That user cannot be found!**");
   let role = args.join(" ").slice(22);

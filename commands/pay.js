@@ -3,7 +3,7 @@ const Discord = require('discord.js'),
 
 module.exports.run = async (bot, message, args) => {
 
-    if (!message.mentions.members.first()) return tools.embed(message.channel, '**Please mention a user!**');
+    if (!message.mentions.members.first()) return message.channel.send('**Please mention a user!**');
 
     let targetMember = message.mentions.members.first(),
         amount = parseInt(args.join(' ').replace(targetMember, ''));
@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
     if (targetBalance === null) targetBalance = startBalance;
     if (selfBalance === null) selfBalance = startBalance;
 
-    if (amount > selfBalance) return tools.embed(message.channel, '**Sorry you don\'t have enough money.**');
+    if (amount > selfBalance) return message.channel.send('**Sorry you don\'t have enough money.**');
 
     db.add(`userBalance_${targetMember.id}`, amount);
     db.subtract(`userBalance_${message.author.id}`, amount);

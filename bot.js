@@ -81,7 +81,7 @@
 
 	let coinAmt = Math.floor(Math.random() * 15) + 14;
 	let baseAmt = Math.floor(Math.random() * 15) + 14;
-	console.log(`${coinAmt} ; ${baseAmt}`);
+	
 
 	if(coinAmt === baseAmt){
 	coins[message.author.id] = {
@@ -94,7 +94,7 @@
 	}
 
 	let xpAdd = Math.floor(Math.random() * 15) + 14;
-	console.log(xpAdd);
+	
 
 	if(!xp[message.author.id]){
 	xp[message.author.id] = {
@@ -151,7 +151,7 @@
 
 	bot.on('guildCreate', guild => {
         if(guild.id !== '421853697027473408') return;
-	let joinLogs = guild.channels.find(`name`, 'logs');
+	      let joinLogs = bot.channels.get('428564028239904790')
         const embed = new Discord.RichEmbed()
         .setColor("#cde246")
         .setAuthor(`Joined ${guild.name}`)

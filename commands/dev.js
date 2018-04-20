@@ -8,6 +8,7 @@ let embed = new Discord.RichEmbed()
 .addField("`t!eval`", "Execute a JavaScript string.")
 .addField("`t!restart`","Restart the bot")
 .addField("`t!reload`","Reload all commands.")
+.addField("`t!setgame`", "Set bot game.")
 
 message.channel.send(embed);
 }

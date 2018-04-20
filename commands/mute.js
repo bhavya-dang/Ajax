@@ -4,10 +4,10 @@ const ms = require("ms");
 module.exports.run = async (bot, message, args) => {
 message.delete();
   
-  if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("<:tickNo:432418492667396097> | You don't have `MANAGE_MEMBERS` permissions.");
+  if(!message.member.hasPermission("MANAGE_ROLES")) return message.reply("<:tickNo:432418492667396097> | You don't have `MANAGE_ROLES` permissions.");
   let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!tomute) return message.reply("Couldn't find user.");
-  if(tomute.hasPermission("MANAGE_MESSAGES")) return message.channel.send("<:tickNo:432418492667396097> | Can't mute them!");
+  if(tomute.hasPermission("MANAGE_ROLES")) return message.channel.send("<:tickNo:432418492667396097> | Can't mute them!");
   let muterole = message.guild.roles.find(`name`, "Muted");
   //start of create role
   if(!muterole){

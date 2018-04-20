@@ -6,10 +6,10 @@ let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 module.exports.run = async (bot, message, args) => {
   message.delete();
 
-  if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("<:tickNo:432418492667396097> | You don't have `MANAGE_MEMBERS` permissions.");
+  if(!message.member.hasPermission("KICK_MEMBERS")) return message.reply("<:tickNo:432418492667396097> | You don't have `KICK_MEMBERS` permissions.");
   let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
   if(!wUser) return message.reply("Couldn't find the user.");
-  if(wUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("<:tickNo:432418492667396097> | They can't be warnt!");
+  if(wUser.hasPermission("KICK_MEMBERS")) return message.channel.send("<:tickNo:432418492667396097> | They can't be warnt!");
   let reason = args.join(" ").slice(22);
 
   if(!warns[wUser.id]) warns[wUser.id] = {
