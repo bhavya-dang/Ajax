@@ -31,7 +31,7 @@ For self-hosting, it also comes with all the code that you need to set it up on 
 ## Setup
 
 Api Keys- For the anime, music, and imgur commands to work you have to get an api key.<br>
-For logging, please create three channels- `member-log`, `mod-log` and `logs` for the bot to log moderation history, member join/leave history and bot guild add history.
+For logging, please create two channels- `member-log`, `mod-log` for the bot to log moderation history, member join/leave history.
 
 Instructions:
 1. Clone the repository in a folder by doing `git clone <repo link>` in the command line. You can get the repo link from here<br>
@@ -39,21 +39,19 @@ Instructions:
 * You can also use Github Desktop to clone it or download the `.zip` folder.<br>
 2. Change the prefix in the botconfig.json file to *whatever* you want.<br>
 3. Do `npm install` to install all the modules in the `package.json` file.<br>
-4. For hosting on heroku, just connect heroku with your github account.<br>
-- Go to `Overview` and click on `Configure Dynos`. Change it to worker.<br>
-- Go to `Settings` and then add the api keys and bot token in the `Config Vars`.
+4. For hosting on just make a profile on glitch and grant it access o your github repo.<br>
+5. After that just import it to glitch and it will work.
 
 
 ## Credits
-@𝕽𝐞𝖝𝐨𝐢𝐋#4945 For general support and ideas and error help.<br>
-@Cubz#2954 For general support and ideas.<br>
-@Respire#9313 For new ideas and Anime and Music commands help.<br>
-@c4m3r0n#6175 For general support and ideas.<br>
-@Whirl#9077 For general support and ideas.<br>
+𝕽𝐞𝖝𝐨𝐢𝐋#4945 For general support and ideas and error help.<br>
+Respire#9313 For new ideas and Anime and Music commands help.<br>
+c4m3r0n#6175 For general support and ideas.<br>
+Bolt#6938  For general support and ideas.<br>
 
 
 ## Support
 If any problem or error, feel free to ask in my Discord server or **open up an issue**.<br>
 Website: [Tritax AI](https://tritaxxcoder.github.io/TritaxAI)<br>
-Invite link is available on the website.
+Invite link is available on the website.<br>
 &copy; A Coder's Hangout 2018
