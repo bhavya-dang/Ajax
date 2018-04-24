@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
   let gRole = message.guild.roles.find(`name`, role);
   if(!gRole) return message.channel.send("<:tickNo:432418492667396097> | Couldn't find that role.");
 
-  if(!rMember.roles.has(gRole.id)) return message.channel.send("<:tickNo:432418492667396097> | They don't have that role.");
+  if(!rMember.roles.has(gRole.id)) return message.channel.send("<:tickNo:432418492667396097> **| They don't have that role.**");
   await(rMember.removeRole(gRole.id));
   message.channel.send(`RIP, ${rMember} you have lost the ${gRole.name} role!`)
   

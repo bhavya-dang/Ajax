@@ -16,14 +16,14 @@ if(message.channel.type !== "text") return;
             const decode = require('he').decode;
             var anime = result.manga.entry[0];
             message.channel.send({embed:new Discord.RichEmbed()
-                                  .setAuthor(`MyAnimeList`,`https://lh3.googleusercontent.com/gdbHihUd8AA6tpBmnkQ8_hAhyxcEWMhy89Ptl-64adBktV-wj3343StB0Z9LNB0Q7bM=w300`)
+              .setAuthor(`MyAnimeList`,`https://myanimelist.cdn-dena.com/img/sp/icon/apple-touch-icon-256.png`)
               .setTitle(anime.title[0] + ` - Manga Search Result`)
               .setURL(`https://myanimelist.net/anime/${anime.id[0]}`)
               .setImage(anime.image[0])
               .addField(`»Synopsis`, decode(anime.synopsis[0].replace(/<[^>]*>/g, ''), false).split('\n')[0])
-                                  .addField(`»Type`,`${anime.type[0]}`,false)
+              .addField(`»Type`,`${anime.type[0]}`,false)
               .addField(`»Chapters`,`${anime.chapters[0]!='' ? anime.chapters[0] : '­'}`,true)
-           //   .addField(`External Link:`,`${anime.id[0]!='' ? `[MyAnimeList](https://myanimelist.net/anime/${anime.id[0]})` : '­'}`,true)
+              .addField(`External Link:`,`${anime.id[0]!='' ? `[MyAnimeList](https://myanimelist.net/anime/${anime.id[0]})` : '­'}`,true)
               .addField(`»Score`,`${anime.score[0]!='' ? anime.score[0] : '­'}`,true)
               .addField(`»Status`,`${anime.status[0]}`,true)
               .addField(`»Volumes`,`${anime.volumes[0]!='' ? anime.volumes[0] : '­'}`,true)

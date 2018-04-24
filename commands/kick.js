@@ -6,15 +6,14 @@ module.exports.run = async (bot, message, args) => {
   if(!kUser) return message.channel.send("Can't find user!");
   if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("<:tickNo:432418492667396097> **| You don't have `KICK_MEMBERS` permissions.**")
   let kReason = args.join(" ").slice(22);
-  if(kUser.hasPermission("KICK_MEMBERS")) return message.channel.send("<:tickNo:432418492667396097> **| That person can't be kicked!**");
 
   let kickEmbed = new Discord.RichEmbed()
   .setDescription("Kick")
   .setColor("#f45642")
   .addField("User", `${kUser}`)
   .addField("Moderator", `${message.author}`)
-  .addField("Time", message.createdAt.toLocaleString())
-  .addField("Reason", kReason);
+  .addField("Reason", kReason)
+  .setTimestamp();
 
   let kickChannel = message.guild.channels.find(`name`, 'mod-log');
   if(!kickChannel) return message.channel.send("<:tickNo:432418492667396097> **| Can't find `mod-log` channel.**");

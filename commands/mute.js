@@ -4,10 +4,9 @@ const ms = require("ms");
 module.exports.run = async (bot, message, args) => {
 message.delete();
   
-  if(!message.member.hasPermission("MANAGE_ROLES")) return message.reply("<:tickNo:432418492667396097> | You don't have `MANAGE_ROLES` permissions.");
+  if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("<:tickNo:432418492667396097> | You don't have `MANAGE_ROLES` permissions.");
   let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-  if(!tomute) return message.reply("Couldn't find user.");
-  if(tomute.hasPermission("MANAGE_ROLES")) return message.channel.send("<:tickNo:432418492667396097> | Can't mute them!");
+  if(!tomute) return message.channel.send("Couldn't find user.");
   let muterole = message.guild.roles.find(`name`, "Muted");
   //start of create role
   if(!muterole){
@@ -34,8 +33,8 @@ let reason = args.join(" ").slice(22)
   let Embed = new Discord.RichEmbed()
   .setTitle("Mute")
   .setColor("#fc6400")
-  .addField("User", tomute)
-  .addField("Moderator", `${message.author}`)
+  .addField("User", `${tomute.user.username}`)
+  .addField("Moderator", `${message.author.username}`)
   .addField("Reason", reason)
   .setTimestamp();
  message.channel.send("<:tickYes:432418492889694210> **| That user has been muted.**")

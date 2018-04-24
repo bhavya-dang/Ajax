@@ -24,6 +24,7 @@
 	})
 
 	fs.readdir("./commands/", (err, files) => {
+    console.log(`Loaded ${files.length} commands.`)
 	if(err) console.log(err);
 	let jsfile = files.filter(f => f.split(".").pop() === "js");
 	if(jsfile.length <= 0){
@@ -150,10 +151,23 @@
 	});
 
 	bot.on('guildCreate', guild => {
+        guild.send("Thanks for adding me! You can do `t!help` to get a list of my available commands!")
 	      let joinLogs = bot.channels.get('428564028239904790')
         const embed = new Discord.RichEmbed()
         .setColor("#cde246")
         .setAuthor(`Joined ${guild.name}`)
+        .setThumbnail(guild.iconURL)
+        .addField("Owner", guild.owner)
+        .addField("ID", guild.id, true)
+        .addField("Users", guild.memberCount, true)
+        .addField("Channels", guild.channels.size, true)
+         joinLogs.send(embed);
+	});
+	bot.on('guildDelete', guild => {
+	      let joinLogs = bot.channels.get('428564028239904790')
+        const embed = new Discord.RichEmbed()
+        .setColor("#cde246")
+        .setAuthor(`Left ${guild.name}`)
         .setThumbnail(guild.iconURL)
         .addField("Owner", guild.owner)
         .addField("ID", guild.id, true)

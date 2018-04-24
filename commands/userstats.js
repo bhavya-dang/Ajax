@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
   let role = message.member.roles.map(r => `${r.name}`)
   
   let uEmbed = new Discord.RichEmbed()
-  .setDescription("**User Information**")
+  .setTitle("User Information")
   .setColor("#e0d318")
   .setThumbnail(message.author.displayAvatarURL)
   .addField("**Userame**", message.member.displayName, true)

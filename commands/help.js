@@ -3,9 +3,8 @@ const Discord = require('discord.js');
 module.exports.run = async (bot, message, args) => {
   let embed = new Discord.RichEmbed()
     .setTitle("Categories")
-    .setAuthor("70 Commands", bot.user.displayAvatarURL)
+    .setAuthor("61 Commands", bot.user.displayAvatarURL)
     .addField("Moderation", "`t!mod`", true)
-    .addField("Economy", "`t!eco`", true)
     .addField("Games", "`t!games`", true)
     .addField("Anime", "`t!animecmds`", true)
     .addField("Music", "`t!music`", true)

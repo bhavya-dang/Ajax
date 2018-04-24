@@ -32,7 +32,6 @@ function getStatData(location, message , $){
 
             $ = cheerio.load(body);
 
-            var KD = getStatData(0, message, $);
             var WIN = getStatData(1, message, $);
             var HS = getStatData(4, message, $);
             var MONEY = getStatData(5, message, $);
@@ -49,7 +48,6 @@ function getStatData(location, message , $){
             .setTitle("CS:GO STATS")
             .setColor("#45b72c")           
             .addField("Win", `${WIN}%`, true)
-            .addField("KD", KD, true)
             .addField("Total Hostages Saved", HR, true)
             .addField("Total Money", MONEY, true)
             .addField("Total Score", SCORE, true)

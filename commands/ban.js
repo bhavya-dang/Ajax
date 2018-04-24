@@ -5,21 +5,19 @@ module.exports.run = async (bot, message, args) => {
     if(!bUser) return message.channel.send("Can't find user!");
     let bReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("<:tickNo:432418492667396097> **| You don't have `BAN_MEMBERS` permissons.**");
-    if(bUser.hasPermission("BAN_MEMBERS")) return message.channel.send("<:tickNo:432418492667396097> **| That person can't be kicked!**");
 
     let banEmbed = new Discord.RichEmbed()
     .setDescription("Ban")
     .setColor("#bc0000")
-    .addField("User", `${bUser}`)
+    .addField("User", `${bUser.user.username}`)
     .addField("Moderator", `${message.author.tag}`)
-    .addField("Time", message.createdAt.toLocaleString())
-    .addField("Reason", bReason);
-
+    .addField("Reason", bReason)
+    .setTimestamp()
     let incidentchannel = message.guild.channels.find(`name`, "mod-log");
     if(!incidentchannel) return message.channel.send("<:tickNo:432418492667396097> **| Can't find `mod-log` channel.**");
     let embed = new Discord.RichEmbed()
     .setTitle("BAN")
-    .addField("Banned In", message.guild)
+    .addField("Banned In", message.guild.name)
     .addField("Moderator", `${message.author.tag}`)
     .addField("Reason", bReason)
     bUser.send(embed);
