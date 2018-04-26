@@ -18,6 +18,7 @@ module.exports.run = async (bot, message, args) => {
     let embed = new Discord.RichEmbed()
     .setTitle("BAN")
     .addField("Banned In", message.guild.name)
+    .setColor("#bc0000")
     .addField("Moderator", `${message.author.tag}`)
     .addField("Reason", bReason)
     bUser.send(embed);

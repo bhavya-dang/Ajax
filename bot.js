@@ -151,7 +151,6 @@
 	});
 
 	bot.on('guildCreate', guild => {
-        guild.send("Thanks for adding me! You can do `t!help` to get a list of my available commands!")
 	      let joinLogs = bot.channels.get('428564028239904790')
         const embed = new Discord.RichEmbed()
         .setColor("#cde246")

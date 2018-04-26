@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const figlet = require('figlet');
 module.exports.run = async(bot, message, args) => {
+message.delete();
 if(!args[0]) return message.channel.send("Please provide your bot id!")
 if(!args[1]) return message.channel.send("Please provide a prefix!")
 let channel = bot.channels.get("431041632805191683");
