@@ -5,7 +5,7 @@
             alt="chat on Discord"></a>
 ---
             
->**Tritax AI** is an **easy-to-use** fun Discord Bot with **HD quality music system** and very useful moderation commands.<br>
+**Tritax AI** is an **easy-to-use** fun Discord Bot with **HD quality music system** and very useful moderation commands.<br>
 
 ***Want to provide feedback or request a feature?*** Come ask in my [Discord](https://discord.gg/hmVjJ).
 
