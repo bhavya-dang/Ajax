@@ -12,6 +12,7 @@ let embed = new Discord.RichEmbed()
     .addField("`t!skip`", "Skips the currently playing song.")
     .addField("`t!volume`", "Set the volume of the song.")
     .addField("`t!resume`", "Resume the paused song.")
+    .setFooter("Music commands sometimes may not work due to glitchy vps. ")
 
 message.channel.send(embed);
 }

@@ -41,27 +41,26 @@
 	});
 
 	bot.on("message", async message => {
+      let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
+  if(!prefixes[message.guild.id]){
+    prefixes[message.guild.id] = {
+      prefixes: botconfig.prefix
+    };
+  }
+	
+    let prefix = prefixes[message.guild.id].prefixes;
 	if(message.author.bot) return undefined;
 	if(message.channel.type === 'dm') return ;
         if(message.content.toLowerCase() === '<@421925809532436481>'){
         let embed = new Discord.RichEmbed()
        .setTitle("Tritax AI")
-       .addField("Prefix", "`t!`", true)
-       .addField("Help", "`t!help`", true)
+       .addField("Prefix", `\`${prefix}\``, true)
+       .addField("Help", `\`${prefix}help\``, true)
        .setThumbnail(bot.user.displayAvatarURL)
        .setColor(`${message.guild.me.displayHexColor!=='#000000' ? message.guild.me.displayHexColor : 0xffffff}`);
         message.channel.send(embed);
         }
-	    if(message.content.startsWith('<@414111663076147201>')){
-	    message.delete();
-        let embed = new Discord.RichEmbed()
-        .setTitle(":speak_no_evil: Sshhh....")
-	     .setDescription(`Don\'t ping him! He can demote you!! **${message.author.tag}**`)
-	.setColor(botconfig.white);
-	message.channel.send(embed)
-	}
-    
-	let prefix = botconfig.prefix;
+
 	let args = message.content.slice(prefix.length).trim().split(" ");
 	let cmd = args.shift().toLowerCase();
 	if(message.author.bot) return undefined;;
@@ -82,6 +81,8 @@
 
 	let coinAmt = Math.floor(Math.random() * 15) + 14;
 	let baseAmt = Math.floor(Math.random() * 15) + 14;
+ 
+
 	
 
 	if(coinAmt === baseAmt){
@@ -120,6 +121,11 @@
 
 	});
 	bot.on('guildMemberAdd', member => {
+    member.guild.channels.get('439792255365021696').setName(`Total Users: ${member.guild.memberCount}`)
+    let humans = member.guild.members.filter(m => !m.user.bot).size;
+    member.guild.channels.get('439793088001736725').setName(`Member Count: ${humans}`)
+    let bots = member.guild.members.filter(m => m.user.bot).size;
+    member.guild.channels.get('439793716052623361').setName(`Bot Count: ${bots}`)
 	const members = member.guild.memberCount;
 	const channel = member.guild.channels.find('name', 'member-log');
 	if (!channel) return;
@@ -140,6 +146,11 @@
 	channel.send(Embed);
 	});
 	bot.on('guildMemberRemove', member => {
+    member.guild.channels.get('439792255365021696').setName(`Total Users: ${member.guild.memberCount}`)
+    let humans = member.guild.members.filter(m => !m.user.bot).size;
+    member.guild.channels.get('439793088001736725').setName(`Member Count: ${humans}`)
+    let bots = member.guild.members.filter(m => m.user.bot).size;
+    member.guild.channels.get('439793716052623361').setName(`Bot Count: ${bots}`)
 	const channel = member.guild.channels.find(`name`, 'member-log');
 	if(!channel) return; 
 	let Embed = new Discord.RichEmbed()
@@ -151,7 +162,7 @@
 	});
 
 	bot.on('guildCreate', guild => {
-	      let joinLogs = bot.channels.get('428564028239904790')
+	      let channel = bot.channels.get("428564028239904790")
         const embed = new Discord.RichEmbed()
         .setColor("#cde246")
         .setAuthor(`Joined ${guild.name}`)
@@ -160,10 +171,10 @@
         .addField("ID", guild.id, true)
         .addField("Users", guild.memberCount, true)
         .addField("Channels", guild.channels.size, true)
-         joinLogs.send(embed);
+         channel.send(embed);
 	});
 	bot.on('guildDelete', guild => {
-	      let joinLogs = bot.channels.get('428564028239904790')
+	      let channel = bot.channels.get("428564028239904790")
         const embed = new Discord.RichEmbed()
         .setColor("#cde246")
         .setAuthor(`Left ${guild.name}`)
@@ -172,6 +183,6 @@
         .addField("ID", guild.id, true)
         .addField("Users", guild.memberCount, true)
         .addField("Channels", guild.channels.size, true)
-         joinLogs.send(embed);
+         channel.send(embed);
 	});
 	bot.login(process.env.TOKEN);

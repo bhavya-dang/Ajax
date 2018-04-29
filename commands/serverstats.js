@@ -7,7 +7,6 @@ module.exports.run = async (bot, message, args) => {
 
   let createdAtRaw = guild.createdAt.toDateString();
   let createdAt = createdAtRaw.split(" ");
-
   let bots = message.guild.members.filter(m => m.user.bot).size;
   let humans = message.guild.members.filter(m => !m.user.bot).size;
   let channels = message.guild.channels.size;

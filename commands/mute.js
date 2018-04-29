@@ -6,6 +6,7 @@ message.delete();
   
   if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("<:tickNo:432418492667396097> | You don't have `MANAGE_ROLES` permissions.");
   let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+  if(tomute === message.author) return message.channel.send("Are you retarted? Why do you wanna mute yourself?")
   if(!tomute) return message.channel.send("Couldn't find user.");
   let muterole = message.guild.roles.find(`name`, "Muted");
   //start of create role
@@ -37,7 +38,7 @@ let reason = args.join(" ").slice(22)
   .addField("Moderator", `${message.author.username}`)
   .addField("Reason", reason)
   .setTimestamp();
- message.channel.send("<:tickYes:432418492889694210> **| That user has been muted.**")
+ message.channel.send("<:tickYes:432418492889694210> **| That user has been muted.**").then(msg => msg.delete({timeout: 20000}));
 let channel= message.guild.channels.find(`name`, 'mod-log')
 if(!channel) return message.channel.send("<:tickNo:432418492667396097> **| Please create a mod-log channel!")
   channel.send(Embed)
