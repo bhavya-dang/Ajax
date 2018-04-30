@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
   .setThumbnail(icon)
   .addField('Guild Name', guild.name, true)
   .addField('Guild ID', guild.id, true)
-  .addField('Guild Owner', guild.owner, true)
+  .addField('Guild Owner', `${guild.owner.user.tag}`, true)
   .addField('Created At', `${createdAt[0]} ${createdAt[2]} ${createdAt[1]} ${createdAt[3]}`, true)
   .addField('Region', guild.region.toUpperCase(), true)
   .addField('Total Members:', guild.memberCount, true)

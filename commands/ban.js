@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Moderator", `${message.author.tag}`)
     .addField("Reason", bReason)
     bUser.send(embed);
-  message.channel.send("<:tickYes:432418492889694210> **| That member has been banned.**").then(msg => msg.delete({timeout: 20000}));
+  message.channel.send("<:tickYes:432418492889694210> **| That member has been banned.**")
   bUser.ban(bReason)
   incidentchannel.send(banEmbed);
 }

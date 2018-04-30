@@ -34,9 +34,9 @@ module.exports.run = async (bot, message, args) => {
 
                 const embed = new Discord.RichEmbed()
                     .setAuthor("Translator", bot.user.displayAvatarURL)
-                    .addField(`Arguments`, `\`\`\`${args}\`\`\``)
+                    .addField(`Input`, `\`\`\`${args}\`\`\``)
                     .setColor("#42f4c8")
-                    .addField(`To ${transArg}`, `\`\`\`${res.text}\`\`\``);
+                    .addField(`Output`, `\`\`\`${res.text}\`\`\``);
                 return message.channel.send(embed);
 
             });

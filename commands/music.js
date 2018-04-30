@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
 
 let embed = new Discord.RichEmbed()
     .setTitle("Music")
-    .setDescription("There are currently 8 commands in this category.")
+    .setDescription("There are currently 8 commands in this category.\nThe prefix for the music commands will not change as it is held on seperate instance.")
     .addField("`t!play`", "Play url or search a video on youtube.")
     .addField("`t!np`", "Shows what is playing right now.")
     .addField("`t!stop`", "Stop the currently playing song.")

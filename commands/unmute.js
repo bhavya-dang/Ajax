@@ -22,7 +22,7 @@ message.delete();
   .addField("Moderator", `${message.author}`)
   .addField("Reason", reason ? reason : "None")
   .setTimestamp()
-  message.channel.send("<:tickYes:432418492889694210> **| That member has been un-muted.**").then(msg => msg.delete({timeout: 20000}));
+  message.channel.send("<:tickYes:432418492889694210> **| That member has been un-muted.**")
 let channel= message.guild.channels.find(`name`, 'mod-log')
 if(!channel) return message.channel.send("<:tickNo:432418492667396097> **| Please create a mod-log channel!**")
   channel.send(Embed)

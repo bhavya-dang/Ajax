@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("Time", message.createdAt.toLocaleString())
   .addField("Reason", kReason);
   kUser.send(embed)
-message.channel.send("<:tickYes:432418492889694210> **| That member is kicked.**").then(msg => msg.delete({timeout: 20000}));
+message.channel.send("<:tickYes:432418492889694210> **| That member is kicked.**")
 kUser.kick(kReason)
 kUser.send(embed);
 kickChannel.send(kickEmbed);

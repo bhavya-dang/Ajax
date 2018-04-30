@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 
 
 module.exports.run = async (bot, message, args) => {
-  
+  message.delete();
   const user = message.mentions.users.first();
   if(!message.member.hasPermission("KICK_MEMBERS")) return message.reply("You don't have the authority to do so.");
 const amount = !!parseInt(message.content.split(' ')[1]) ? parseInt(message.content.split(' ')[1]) : parseInt(message.content.split(' ')[2])

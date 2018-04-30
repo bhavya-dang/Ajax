@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const hastebin = require('hastebin-gen');
 
 module.exports.run = async (bot, message, args) => {
  let embed = new Discord.RichEmbed()

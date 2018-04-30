@@ -25,15 +25,15 @@ if(!reason) return message.channel.send("Please provide a reason!")
   let warnEmbed = new Discord.RichEmbed()
   .setTitle("Warn")
   .setColor("#fc6400")
-  .addField("User", `${wUser.user.username}`)
-  .addField("Moderator", `${message.author.username}`)
+  .addField("User", `${wUser.user.tag}`)
+  .addField("Moderator", `${message.author.tag}`)
   .addField("Number of Warnings", warns[wUser.id].warns)
   .addField("Reason", reason);
 
   let warnchannel = message.guild.channels.find(`name`, "mod-log");
   if(!warnchannel) return message.channel.send("<:tickNo:432418492667396097> **| Couldn't find `mod-log` channel**");
   warnchannel.send(warnEmbed);
-  message.channel.send("<:tickYes:432418492889694210> **| That user has been warnt.**").then(msg => msg.delete({timeout: 20000}));
+  message.channel.send("<:tickYes:432418492889694210> **| That user has been warnt.**")
 
   
 }
