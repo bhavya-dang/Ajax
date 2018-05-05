@@ -5,9 +5,9 @@ module.exports.run = async (bot, message, args) => {
 let embed = new Discord.RichEmbed()
 .setTitle("Statistics")
 .setDescription("There are currently 3 commands in this category.")
-.addField("`t!stats`", "Provides bot's statistics.")
-.addField("`t!userstats`", "Provide user statistics")
-.addField("`t!serverstats`", "Provide server statistics.")
+.addField("`" + message.prefix +"stats`", "Provides bot's statistics.")
+.addField("`" + message.prefix +"userstats`", "Provide user statistics")
+.addField("`" + message.prefix +"serverstats`", "Provide server statistics.")
 
 
 message.channel.send(embed);
