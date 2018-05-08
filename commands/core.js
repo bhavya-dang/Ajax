@@ -4,9 +4,9 @@ module.exports.run = async (bot, message, args) => {
     let embed = new Discord.RichEmbed()
     .setTitle("Core")
     .setDescription("There are currently 2 commands in this category.")
-    .addField("`t!help`", "Provides a list of available commands.")
-    .addField("`t!info`", "Provide information about the bot.")
-    .addField("`t!prefix`", "Change bot prefix.[Default is `t!`]")
+    .addField("`" + message.prefix +"help`", "Provides a list of available commands.")
+    .addField("`" + message.prefix +"info`", "Provide information about the bot.")
+    .addField("`" + message.prefix +"prefix`", "Change bot prefix.[Default is `t!`]")
     
     message.channel.send(embed)
 }

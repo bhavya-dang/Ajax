@@ -63,8 +63,9 @@
 
 	let args = message.content.slice(prefix.length).trim().split(" ");
 	let cmd = args.shift().toLowerCase();
-	if(message.author.bot) return undefined;;
+	if(message.author.bot) return undefined;
 	if(!message.content.startsWith(prefix)) return undefined;
+   message.prefix = prefix;
 
 
 	try {
