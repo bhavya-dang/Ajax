@@ -3,8 +3,7 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
 
 let embed = new Discord.RichEmbed()
-    .setTitle("Moderation")
-    .setDescription("There are currently 9 commands in this category. These commands need a mod-log channel.")
+    .setTitle("<:TAmod:444855093569781760> Moderation")
     .addField("`" + message.prefix + "ban`", "Ban a member.")
     .addField("`" + message.prefix + "unban`", "Un-ban a member. [Requires id]")
     .addField("`" + message.prefix +"clear`", "Clear messages")

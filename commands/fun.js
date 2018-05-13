@@ -2,9 +2,8 @@ const Discord = require('discord.js');
 
 module.exports.run = async (bot, message, args) => {
     let embed = new Discord.RichEmbed()
-    .setTitle("Fun")
+    .setTitle("<:TAfun:444855091585875979> Fun")
     .setTimestamp()
-    .setDescription("There are currently 9 commands in this category.")
     .addField("`" + message.prefix +"8ball`", "Ask the magical 8ball a question.")
     .addField("`" + message.prefix +"avatar`", "Get a member's avatar.")
     .addField("`" + message.prefix +"doggo`", "Get a random dog image.")
@@ -17,5 +16,5 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(embed)
 }
 module.exports.help = {
-    name: "mod"
+    name: "fun"
 }

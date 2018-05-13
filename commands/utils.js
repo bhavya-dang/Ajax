@@ -3,8 +3,7 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
 
 let embed = new Discord.RichEmbed()
-.setTitle("Utilities")
-.setDescription("There are currently 15 commands in this category.")
+.setTitle("<:TAstats:444855091501989888> Utilities")
 .addField("`" + message.prefix +"ascii`", "Generate ascii text.")
 .addField("`" + message.prefix +"auto`","Auto-complete a username.")
 .addField("`" + message.prefix + "`" + message.prefix +"avatar`", "Generate avatar of a member.")

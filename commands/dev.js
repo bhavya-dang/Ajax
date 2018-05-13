@@ -3,8 +3,7 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
 
 let embed = new Discord.RichEmbed()
-.setTitle("Utilities")
-.setDescription("There are currently 4 commands in this category.")
+.setTitle("<:TAdev:444855091443531782> Developer")
 .addField("`" + message.prefix +"eval`", "Execute a JavaScript string.")
 .addField("`" + message.prefix +"restart`","Restart the bot")
 .addField("`" + message.prefix +"reload`","Reload all commands.")
