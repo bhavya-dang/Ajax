@@ -14,6 +14,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Fun", "`" + message.prefix + "fun`", true)
     .addField("Statistics", "`" + message.prefix + "statistics`", true)
     .addField("Developer", "`" + message.prefix + "dev`", true)
+  .setFooter("If you found a bug please report it using " + message.prefix + "bugreport")
     message.channel.send(embed);
 }
 module.exports.help = {

@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
   if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel("<:tickNo:432418492667396097> **| You dont have `MANAGE_ROLES` permissions.**");
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
   if(!rMember) return message.channel.send("<:tickNo:432418492667396097> **| That user cannot be found!**");
-  let role = args.slice(22).join(" ");
+  let role = args.join(" ").slice(22);
   if(!role) return message.channel.send("<:tickNo:432418492667396097> **| Please specify a role!**");
   let gRole = message.guild.roles.find(`name`, role);
   if(!gRole) return message.channel.send("<:tickNo:432418492667396097> **| Couldn't find that role.**");

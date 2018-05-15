@@ -23,7 +23,7 @@ if(message.channel.type !== "text") return;
               .addField(`»Synopsis`, decode(anime.synopsis[0].replace(/<[^>]*>/g, ''), false).split('\n')[0])
               .addField(`»Type`,`${anime.type[0]}`,false)
               .addField(`»Chapters`,`${anime.chapters[0]!='' ? anime.chapters[0] : '­'}`,true)
-              .addField(`External Link:`,`${anime.id[0]!='' ? `[MyAnimeList](https://myanimelist.net/anime/${anime.id[0]})` : '­'}`,true)
+              //.addField(`External Link:`,`${anime.id[0]!='' ? `[MyAnimeList](https://myanimelist.net/anime/${anime.id[0]})` : '­'}`,true)
               .addField(`»Score`,`${anime.score[0]!='' ? anime.score[0] : '­'}`,true)
               .addField(`»Status`,`${anime.status[0]}`,true)
               .addField(`»Volumes`,`${anime.volumes[0]!='' ? anime.volumes[0] : '­'}`,true)

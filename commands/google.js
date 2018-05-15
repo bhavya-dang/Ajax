@@ -8,11 +8,10 @@ module.exports.run = async (bot, message, args) => {
     const time = Date.now();
     const term = args.join(' ');
     const searchurl = 'http://google.com/search?safe=active&gl=uk&hl=en&q=' + encodeURIComponent(term);
-    const searchmessage = await message.channel.send('Searching for 🔍 ' + term);
+    const searchmessage = await message.channel.send('Searching for ' + term);
     const body = await get(searchurl);
     const $ = new parse(body.text);
-  let badwords = args.join('porn', 'pornhub', 'big tits', 'black dick', 'black cock', 'pussy', 'hentai', 'nsfw', 'ecchi');
-  if(!badwords) return message.channel.send(":underage: This is not an nsfw channel :underage:");
+
 
     const result = (await Promise.all(
       $.querySelectorAll('.r')
@@ -43,11 +42,13 @@ module.exports.run = async (bot, message, args) => {
           return obj;
         })
     ));
-    if (!result.length) return searchmessage.edit(`${lang.noRslt}` + term);
+
+
+    if (!result.length) return message.edit('No Results Found' + term);
     const first = result.shift();
     const vanityurl_1 = /^https?:\/\/[\w\.\-_]+(?::\d+|\.\w*)(?:\/|$)/g.exec(first.url);
     const vanityurl = vanityurl_1 && vanityurl_1[0] ? vanityurl_1[0] : first.url;   
-    const embed = new Discord.RichEmbed()
+    const embed = new MessageEmbed()
       .setColor('RANDOM')
       .setAuthor(`Results for "${term}"`, 'https://lh4.googleusercontent.com/-v0soe-ievYE/AAAAAAAAAAI/AAAAAAADwkE/KyrKDjjeV1o/photo.jpg', searchurl)
       .setTitle(`${first.title.substring(0, 200)} - ${vanityurl.substring(0, 50) + (vanityurl.length > 50 ? '...' : '')}`)

@@ -6,7 +6,8 @@ module.exports.run = async (bot, message, args) => {
     .setDescription("There are currently 2 commands in this category.")
     .addField("`" + message.prefix +"help`", "Provides a list of available commands.")
     .addField("`" + message.prefix +"info`", "Provide information about the bot.")
-    .addField("`" + message.prefix +"prefix`", "Change bot prefix.[Default is `t!`]")
+    .addField("`" + message.prefix +"bugreport`", "Report a bug.")
+    .addField("`" + message.prefix +"prefix`", "Change bot prefix.`[Default is 1t!]`")
     
     message.channel.send(embed)
 }

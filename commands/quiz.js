@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args) => {
                                  .setAuthor(`Winner: ${winnerMessage.author.tag}`, winnerMessage.author.displayAvatarURL)
                                  .setTitle(`Correct Answer: \`${winnerMessage.content}\``)
                                  .setFooter(`Question: ${item.q}`)
-                                 .setColor(message.guild.me.displayHexColor)
+                                 .setColor(`${message.guild.me.displayHexColor!=='#000000' ? message.guild.me.displayHexColor : 0xffffff}`)
                                 })
   } catch (_) {
     return message.channel.send({embed: new Discord.RichEmbed()

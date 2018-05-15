@@ -9,7 +9,12 @@ module.exports.run = async(bot, message, args, level) => {
   if(message.author.id !== '414111663076147201') return message.channel.send(embed);
     exec(`${args.join(' ')}`, (error, stdout) => {
       const response = (error || stdout);
-      message.channel.send(`Ran: ${args.join(" ")}\n${response}`, {code: "asciidoc", split: "\n"}).catch(console.error);
+      let embed = new Discord.RichEmbed()
+      .setTitle(`Executed in ${Math.round(bot.ping)}ms`)
+      .addField(":inbox_tray: Input", `\`\`\`asciidoc\n${args.join(" ")}\n\`\`\``)
+      .addField(":outbox_tray: Output", `\`\`\`js\n${response}\n\`\`\``)
+      .setColor('GREEN');
+      message.channel.send({embed});
     });
 }
 module.exports.help = {

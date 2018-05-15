@@ -14,10 +14,18 @@
 	setTimeout(function(){
 	console.log("Bot has been loaded completely.");
 	}, 1000);
-	setTimeout(function(){
-	console.log(`Logged in as ${bot.user.tag}`);
-	}, 2000);
-	bot.user.setActivity(`t!help | ${bot.guilds.size} guilds | ${bot.users.size} users`, {type: "PLAYING"});
+	function botStatus() {
+        let status = [
+            `My Default Prefix ${botconfig.prefix}.`,
+            `in ${bot.guilds.size} guilds.`,
+            `in ACH.`,
+            `with my dev Tritax#2924`,
+            `with ${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} users.`
+        ];
+        let rstatus = Math.floor(Math.random() * status.length);
+
+        bot.user.setActivity(status[rstatus], {Type: 'STREAMING'});        // BOT STATUS
+      }; setInterval(botStatus, 20000)
         setInterval(() => {
         dbl.postStats(bot.guilds.size)
         }, 1800000);
