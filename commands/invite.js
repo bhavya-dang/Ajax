@@ -4,7 +4,7 @@ message.delete();
 if(!args[0]) return message.channel.send("Please provide your bot id!")
 if(!args[1]) return message.channel.send("Please provide a prefix!")
 if(message.guild.members.has(args[0])) return message.channel.send("**This bot is already in the server. Can't you see? -_-**")
-let channel = bot.channels.get("431041632805191683");
+let channel = bot.channels.get("447103334575505408");
 if(message.channel !== channel){
 return message.channel.send("This command only works in `bot-invite` channel.")
 }else{

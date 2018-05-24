@@ -11,8 +11,8 @@ module.exports.run = async (bot, message, args) => {
     let banEmbed = new Discord.RichEmbed()
     .setDescription("Ban")
     .setColor("#bc0000")
-    .addField("User", `${bUser.user.username}`)
-    .addField("Moderator", `${message.author.tag}`)
+    .addField("User", bUser.user.tag)
+    .addField("Moderator", message.author.tag)
     .addField("Reason", bReason)
     .setTimestamp()
     let incidentchannel = message.guild.channels.find(`name`, "mod-log");
@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
     .setTitle("BAN")
     .addField("Banned In", message.guild.name)
     .setColor("#bc0000")
-    .addField("Moderator", `${message.author.tag}`)
+    .addField("Moderator", message.author.tag)
     .addField("Reason", bReason)
     bUser.send(embed);
   message.channel.send("<:tickYes:432418492889694210> **| That member has been banned.**")

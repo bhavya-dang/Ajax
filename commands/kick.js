@@ -21,8 +21,8 @@ module.exports.run = async (bot, message, args) => {
    let embed = new Discord.RichEmbed()
   .setDescription("Kick")
   .setColor("#f45642")
-  .addField("User", `${kUser.user.username}`)
-  .addField("Moderator", `${message.author.tag}`)
+  .addField("User", kUser.user.tag)
+  .addField("Moderator", message.author.tag)
   .addField("Time", message.createdAt.toLocaleString())
   .addField("Reason", kReason);
   kUser.send(embed)

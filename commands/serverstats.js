@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
   let voiceChannels = message.guild.channels.filter(i => i.type == "voice").size;
   let emojis = [];
   guild.emojis.forEach(emoji => {
-  emojis.push(`\`${emoji.name}\``);
+  emojis.push(`\`${emoji}\``);
   });
   emojis.length === 0 ? emojis = "None" : emojis = emojis.join(", ");
 
@@ -38,9 +38,9 @@ module.exports.run = async (bot, message, args) => {
   .addField('Users:', humans, true)
   .addField('Verification Level', guild.verificationLevel, true)
   .addField('Text Channels', textChannels, true)
-  .addField('Text Channels', voiceChannels, true)
-  .addField('Roles', `${guild.roles.size}`, true)
-  .addField('Emojis', `${guild.emojis.size}`, true)
+  .addField('Voice Channels', voiceChannels, true)
+  .addField(`Roles(${guild.roles.size})`, `${guild.roles.map(r => r.name)}`, true)
+  .addField(`Emojis(${guild.emojis.size})`, `${guild.emojis.map(r => `${r}`)}`, true)
 
   return message.channel.send(embed);
 }

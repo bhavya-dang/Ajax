@@ -148,7 +148,7 @@
        }
  
 	let Embed = new Discord.RichEmbed()
-	.setFooter("User Joined")
+	.setFooter(`User Joined | Members- ${member.guild.memberCount}`)
 	.setColor("#cde246")    
 	.setAuthor(`${member.displayName} has joined ${member.guild.name}`, member.user.displayAvatarURL)
 	.setTimestamp()
@@ -166,7 +166,7 @@
 	.setColor("#e26346")
 	.setAuthor(`${member.displayName}, has left ${member.guild.name}.`, member.user.displayAvatarURL)
 	.setTimestamp()
-	.setFooter("User Left")
+	.setFooter(`User Left | Members- ${member.guild.memberCount}`)
 	channel.send(Embed);
 	});
 
@@ -176,7 +176,7 @@
         .setColor("#cde246")
         .setAuthor(`Joined ${guild.name}`)
         .setThumbnail(guild.iconURL)
-        .addField("Owner", guild.owner)
+        .addField("Owner", guild.owner.username)
         .addField("ID", guild.id, true)
         .addField("Users", guild.memberCount, true)
         .addField("Channels", guild.channels.size, true)
@@ -188,7 +188,7 @@
         .setColor("#cde246")
         .setAuthor(`Left ${guild.name}`)
         .setThumbnail(guild.iconURL)
-        .addField("Owner", guild.owner)
+        .addField("Owner", guild.owner.username)
         .addField("ID", guild.id, true)
         .addField("Users", guild.memberCount, true)
         .addField("Channels", guild.channels.size, true)

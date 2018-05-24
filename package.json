@@ -62,6 +62,11 @@
     "overwatch-api": "^0.2.4",
     "encrypt_decrypt": "^1.0.0",
     "canvas-constructor": "^0.3.0",
-    "canvas": "^1.6.10"
+    "canvas": "^1.6.10",
+    "opusscript": "^0.0.6",
+    "libsodium": "^0.7.3",
+    "uws": "^10.148.0",
+    "bufferutil": "^3.0.5",
+    "erlpack": "^0.1.2"
   }
 }

@@ -44,11 +44,11 @@ module.exports.run = async (bot, message, args) => {
     ));
 
 
-    if (!result.length) return message.edit('No Results Found' + term);
+    if (!result.length) return message.channel.send('No Results Found' + term);
     const first = result.shift();
     const vanityurl_1 = /^https?:\/\/[\w\.\-_]+(?::\d+|\.\w*)(?:\/|$)/g.exec(first.url);
     const vanityurl = vanityurl_1 && vanityurl_1[0] ? vanityurl_1[0] : first.url;   
-    const embed = new MessageEmbed()
+    const embed = new Discord.RichEmbed()
       .setColor('RANDOM')
       .setAuthor(`Results for "${term}"`, 'https://lh4.googleusercontent.com/-v0soe-ievYE/AAAAAAAAAAI/AAAAAAADwkE/KyrKDjjeV1o/photo.jpg', searchurl)
       .setTitle(`${first.title.substring(0, 200)} - ${vanityurl.substring(0, 50) + (vanityurl.length > 50 ? '...' : '')}`)
