@@ -39,8 +39,8 @@ module.exports.run = async (bot, message, args) => {
   .addField('Verification Level', guild.verificationLevel, true)
   .addField('Text Channels', textChannels, true)
   .addField('Voice Channels', voiceChannels, true)
-  .addField(`Roles(${guild.roles.size})`, `${guild.roles.map(r => r.name)}`, true)
-  .addField(`Emojis(${guild.emojis.size})`, `${guild.emojis.map(r => `${r}`)}`, true)
+  .addField(`Roles`, `${guild.roles.size}`, true)
+  .addField(`Emojis`, `${guild.emojis.size}`, true)
 
   return message.channel.send(embed);
 }

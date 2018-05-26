@@ -130,11 +130,11 @@
 
 	});
 	bot.on('guildMemberAdd', member => {
-    member.guild.channels.get('439792255365021696').setName(`Total Users: ${member.guild.memberCount}`)
+    bot.channels.get('439792255365021696').setName(`Total Users: ${member.guild.memberCount}`)
     let humans = member.guild.members.filter(m => !m.user.bot).size;
-    member.guild.channels.get('439793088001736725').setName(`Member Count: ${humans}`)
+    bot.channels.get('439793088001736725').setName(`Member Count: ${humans}`)
     let bots = member.guild.members.filter(m => m.user.bot).size;
-    member.guild.channels.get('439793716052623361').setName(`Bot Count: ${bots}`)
+    bot.channels.get('439793716052623361').setName(`Bot Count: ${bots}`)
 	const members = member.guild.memberCount;
 	const channel = member.guild.channels.find('name', 'member-log');
 	if (!channel) return;
@@ -155,11 +155,11 @@
 	channel.send(Embed);
 	});
 	bot.on('guildMemberRemove', member => {
-    member.guild.channels.get('439792255365021696').setName(`Total Users: ${member.guild.memberCount}`)
+    bot.channels.get('439792255365021696').setName(`Total Users: ${member.guild.memberCount}`)
     let humans = member.guild.members.filter(m => !m.user.bot).size;
-    member.guild.channels.get('439793088001736725').setName(`Member Count: ${humans}`)
+    bot.channels.get('439793088001736725').setName(`Member Count: ${humans}`)
     let bots = member.guild.members.filter(m => m.user.bot).size;
-    member.guild.channels.get('439793716052623361').setName(`Bot Count: ${bots}`)
+    bot.channels.get('439793716052623361').setName(`Bot Count: ${bots}`)
 	const channel = member.guild.channels.find(`name`, 'member-log');
 	if(!channel) return; 
 	let Embed = new Discord.RichEmbed()
@@ -176,7 +176,7 @@
         .setColor("#cde246")
         .setAuthor(`Joined ${guild.name}`)
         .setThumbnail(guild.iconURL)
-        .addField("Owner", guild.owner.username)
+        .addField("Owner", guild.owner.user.tag)
         .addField("ID", guild.id, true)
         .addField("Users", guild.memberCount, true)
         .addField("Channels", guild.channels.size, true)
@@ -188,7 +188,7 @@
         .setColor("#cde246")
         .setAuthor(`Left ${guild.name}`)
         .setThumbnail(guild.iconURL)
-        .addField("Owner", guild.owner.username)
+        .addField("Owner", guild.owner.user.tag)
         .addField("ID", guild.id, true)
         .addField("Users", guild.memberCount, true)
         .addField("Channels", guild.channels.size, true)
