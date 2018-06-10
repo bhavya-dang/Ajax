@@ -7,7 +7,6 @@ message.delete();
   if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("<:tickNo:432418492667396097> **| You don't have `MANAGE_MEMBERS` permissions.**");
   let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!tomute) return message.reply("Couldn't find user.");
-  if(tomute.hasPermission("MANAGE_MESSAGES")) return message.channel.send("<:tickNo:432418492667396097> **| Can't mute them!**");
   let muterole = message.guild.roles.find(`name`, "Muted");
   
   if(!muterole) return message.channel.send("<:tickNo:432418492667396097> **| Please create a role named `Muted`.**")
@@ -20,7 +19,7 @@ message.delete();
   .setColor("#fc6400")
   .addField("User", tomute.user.tag)
   .addField("Moderator", message.author.tag)
-  .addField("Reason", reason ? reason : "None")
+  .addField("Reason", `${reason ? reason : "None"}`)
   .setTimestamp()
   message.channel.send("<:tickYes:432418492889694210> **| That member has been un-muted.**")
 let channel= message.guild.channels.find(`name`, 'mod-log')

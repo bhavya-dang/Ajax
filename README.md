@@ -1,17 +1,17 @@
-## Tritax AI
+## Ajax
 
 [![Build Status](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)](https://travis-ci.org/travis-ci/travis-web) ![Version](https://img.shields.io/badge/version-v1.1.0-brightgreen.svg) <a href="https://discord.gg/HjJCwm5">
         <img src="https://img.shields.io/discord/421853697027473408.svg?logo=discord"
             alt="chat on Discord"></a>
 ---
             
->**Tritax AI** is an **easy-to-use** fun Discord Bot with **HD quality music system** and very useful moderation commands.<br>
+>**Ajax** is the officially release version of the prototype Tritax AI. It is an **easy-to-use** fun Discord Bot with **HD quality music system** and very useful moderation commands.<br>
 
 ***Want to provide feedback or request a feature?*** Come ask in my [Discord](https://discord.gg/hmVjJ).
 
 ## Hosting
 
-Tritax AI is 24/7 hosted on glitch.<br>
+Ajax is 24/7 hosted on glitch.<br>
 For self-hosting, it also comes with all the code that you need to set it up on glitch.
 
 
@@ -52,6 +52,6 @@ Bolt#6938  For general support and ideas.<br>
 
 ## Support
 If any problem or error, feel free to ask in my Discord server or **open up an issue**.<br>
-Website: [Tritax AI](https://tritaxxcoder.github.io/TritaxAI)<br>
+Website: [Ajax](https://ajax-site.glitch.me/loader.html)<br>
 Invite link is available on the website.<br>
 &copy; A Coder's Hangout 2018

@@ -28,7 +28,7 @@ if(!reason) return message.channel.send("Please provide a reason!")
   .addField("User", `${wUser.user.tag}`)
   .addField("Moderator", `${message.author.tag}`)
   .addField("Number of Warnings", warns[wUser.id].warns)
-  .addField("Reason", reason);
+  .addField("Reason", `${reason ? reason : "None."}`);
 
   let warnchannel = message.guild.channels.find(`name`, "mod-log");
   if(!warnchannel) return message.channel.send("<:tickNo:432418492667396097> **| Couldn't find `mod-log` channel**");

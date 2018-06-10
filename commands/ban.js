@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
     .setColor("#bc0000")
     .addField("User", bUser.user.tag)
     .addField("Moderator", message.author.tag)
-    .addField("Reason", bReason)
+    .addField("Reason", `${bReason ? bReason : "None."}`)
     .setTimestamp()
     let incidentchannel = message.guild.channels.find(`name`, "mod-log");
     if(!incidentchannel) return message.channel.send("<:tickNo:432418492667396097> **| Can't find `mod-log` channel.**");
@@ -22,11 +22,12 @@ module.exports.run = async (bot, message, args) => {
     .addField("Banned In", message.guild.name)
     .setColor("#bc0000")
     .addField("Moderator", message.author.tag)
-    .addField("Reason", bReason)
-    bUser.send(embed);
+    .addField("Reason", `${bReason ? bReason : "None."}`)
   message.channel.send("<:tickYes:432418492889694210> **| That member has been banned.**")
   bUser.ban(bReason)
   incidentchannel.send(banEmbed);
+  try{bUser.send(embed)}catch(e){message.channel.send("Unable to send message to user.")}
+
 }
 
 module.exports.help = {

@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
   .setColor("#f45642")
   .addField("User", `${kUser}`)
   .addField("Moderator", `${message.author}`)
-  .addField("Reason", kReason)
+  .addField("Reason", `${kReason ? kReason : "None."}`)
   .setTimestamp();
 
   let kickChannel = message.guild.channels.find(`name`, 'mod-log');
@@ -24,12 +24,12 @@ module.exports.run = async (bot, message, args) => {
   .addField("User", kUser.user.tag)
   .addField("Moderator", message.author.tag)
   .addField("Time", message.createdAt.toLocaleString())
-  .addField("Reason", kReason);
-  kUser.send(embed)
+  .addField("Reason", `${kReason ? kReason : "None."}`);
 message.channel.send("<:tickYes:432418492889694210> **| That member is kicked.**")
 kUser.kick(kReason)
-kUser.send(embed);
 kickChannel.send(kickEmbed);
+try{kUser.send(embed)}catch(e) {message.channel.send("Unable to send message to user.")}
+
 }
 
 module.exports.help = {

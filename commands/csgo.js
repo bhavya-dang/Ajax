@@ -5,7 +5,8 @@ var request = require('request');
 
 module.exports.run = async (bot, message, args) => {
   
-function getStatData(location, message , $){
+try{
+  function getStatData(location, message , $){
 
   var selector = $('.stats-stat .value').eq(location).text();
 
@@ -59,6 +60,9 @@ function getStatData(location, message , $){
             .addField("Total Headshots", HS);
             message.channel.send(STAT);
            })
+}catch(e){
+message.channel.send("Unable to find any data on user.")
+}
 }
         
         

@@ -6,7 +6,6 @@ module.exports.run = async (bot, message, args) => {
   .setDescription("Sorry, the `eval` command can only be executed by the Developer.")
   .setColor("#cdf785");
   if(message.author.id !== '414111663076147201') return message.channel.send(embed);
-  
   function clean(text) {
   if (typeof(text) === "string")
     return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));

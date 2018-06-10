@@ -9,25 +9,6 @@ message.delete();
   if(tomute === message.guild.member(message.author)) return message.channel.send("Are you retarted? Why do you wanna mute yourself?")
   if(!tomute) return message.channel.send("Couldn't find user.");
   let muterole = message.guild.roles.find(`name`, "Muted");
-  //start of create role
-  if(!muterole){
-    try{
-      muterole = await message.guild.createRole({
-        name: "Muted",
-        color: "#000000",
-        permissions:[]
-      })
-      message.guild.channels.forEach(async (channel, id) => {
-        await channel.overwritePermissions(muterole, {
-          SEND_MESSAGES: false,
-          ADD_REACTIONS: false
-        });
-      });
-    }catch(e){
-      console.log(e.stack);
-    }
-  }
-  
 
 let reason = args.join(" ").slice(22)
   await(tomute.addRole(muterole.id));
@@ -36,7 +17,7 @@ let reason = args.join(" ").slice(22)
   .setColor("#fc6400")
   .addField("User", tomute.user.tag)
   .addField("Moderator",message.author.tag)
-  .addField("Reason", reason)
+  .addField("Reason", `${reason ? reason : "None."}`)
   .setTimestamp();
  message.channel.send("<:tickYes:432418492889694210> **| That user has been muted.**")
 let channel= message.guild.channels.find(`name`, 'mod-log')

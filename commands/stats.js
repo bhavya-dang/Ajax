@@ -1,4 +1,6 @@
 const Discord = require("discord.js");
+let cpuusage = process.cpuUsage();
+let cpu = Math.floor(cpuusage.user/cpuusage.system) + "%";
 var upSecs = 0;
 var upMins = 0;
 var upHours = 0;
@@ -21,7 +23,8 @@ setInterval(function() {
 module.exports.run = async (bot, message, args) => {
     message.channel.send(`= STATISTICS =
 • Bot        :: ${bot.user.tag}
-• Developer  :: TritaxXCoder#2924
+• Developer  :: TritaxXx#2924
+• Cpu Usage  :: ${cpu}
 • Mem Usage  :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB
 • Uptime     :: ${upDays} Day(s), ${upHours} Hour(s), ${upMins} Minute(s) and ${upSecs} Second(s)
 • Users      :: ${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}
