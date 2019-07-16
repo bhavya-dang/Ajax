@@ -21,7 +21,7 @@
     "discord.js": "^11.5.1",
     "encrypt_decrypt": "^1.0.0",
     "enmap": "^4.8.6",
-    "express": "^4.17.7",
+    "express": "^latest",
     "ffmpeg": "0.0.4",
     "figlet": "^1.2.3",
     "fortnite": "^4.3.2",
